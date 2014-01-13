@@ -1,0 +1,25 @@
+<h1> MTA route! </h1>
+<form action"/mta_form" method="get"> 			<!-- path that it goes to -->
+	<label for="first">Create line: ...</label> 
+	<select name="first"> 
+		<option>generate</option>
+	</select>
+	<br><br>
+	<h2>Please enter route details below:</h2>
+	<label for="second_start_line">Start line:</label>
+	<input type="text" name="second_start_line">
+	<br>
+	<label for="third_start_stop">Start stop:</label>
+	<input type="text" name="third_start_stop">
+	<br>
+	<label for="fourth_finish_line">Finish line:</label>
+	<input type="text" name="fourth_finish_line">
+	<br>
+	<label for="fifth_finish_stop">Finish stop:</label>
+	<input type="text" name="fifth_finish_stop">
+	<br>
+
+	<button>Count stops!</button>
+</form>
+
+<p>Total stops: <%= @result %></p>
