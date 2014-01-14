@@ -6,7 +6,7 @@ class Animal
   def initialize(name=nil, a_age=nil, petsname=nil, gender=nil, toys =[])
   end
   def to_s
-    "The animal is a #{@name} their name is #{petsname}. The age is #{@a_age}. The gender is #{@gender}. The toys are #{@toys}."
+    "The animal is a #{@name} their name is #{petsname}. The age is #{@a_age}. The gender is #{@gender}. The toys are #{@toys.join(',')}."
   end
 end
 
@@ -69,7 +69,7 @@ newshelter= Shelter.new("HapiTails")
 animals =[animal1, animal2]
 clients = [client1]
 pets = []
-adopted_pets = []
+# adopted_pets = []
   
 
 puts "Welcome to #{newshelter.shelter_name} Animal Shelter"
@@ -78,9 +78,11 @@ loop do
 puts "Here at #{newshelter.shelter_name} we have #{animals.count} animals and have #{clients.count} clients."
 puts "-----------------"
 puts "Choose what you want to do?"
-puts "Create a client type --- cc /// Add an animal type --- ca" 
-puts "Look at clients type --- clients /// Look at the animals in the shelter type --- animals" 
-puts "Adopt an animal type --- adopt"
+puts "1. Create a client"  
+puts "2. Create an animal" 
+puts "3. Look at clients"
+puts "4. Look at animals"
+puts "5. adopt an animal" 
 puts "----------------"
 puts "To exit type --- q"
 client_command = gets.chomp.downcase
@@ -89,7 +91,7 @@ break if client_command == "q"
 
 #ask do you want to add a client? If they want to add a client it asks them to put in their details all these details will be stored in the clients array. This will add them to the clients list
 
-if client_command == "cc"
+if client_command == "1"
   puts "what is your name?"
   c_name = gets.chomp.downcase
 
@@ -116,7 +118,7 @@ if client_command == "cc"
 
 #do you want to add animals to the shelter? if they want to add an animal to the shelter it asks for the details of the animal and then it adds the animal to the animal array.
 
-elsif client_command == "ca"
+elsif client_command == "2"
   puts "what animal do you want to add?"
   a_name = gets.chomp.downcase
 
@@ -141,7 +143,7 @@ elsif client_command == "ca"
 
   animals.push(animal_create)
 
-elsif client_command == "clients"
+elsif client_command == "3"
   puts clients.map{|client| client.name}
 
   puts "what client do you want to see?"
@@ -151,7 +153,7 @@ elsif client_command == "clients"
 
   puts client_listing
 
- elsif client_command == "animals"
+ elsif client_command == "4"
   puts animals.map{|animal| animal.name}
 
   puts "What animal do you want to see?"
@@ -163,7 +165,13 @@ elsif client_command == "clients"
 
 #do you want to adopt pets? if so it will display the animals and then the client can select it and it will go into their client pets array. 
 
-elsif client_command == "adopt"
+elsif client_command == "5"
+  puts "What client wants to adopt?"
+  client_names = gets.chomp.downcase
+  client_names = clients.find{|client| client.name == client_names}
+  # puts client_names
+  
+
   puts "What animal would you like to adopt?"
   animal_names = animals.map{|animal| animal.name}
   puts animal_names
@@ -171,12 +179,38 @@ elsif client_command == "adopt"
   user_adopt = gets.chomp.downcase
 
   user_adopt = animals.pop
-  adopted_pets.push(user_adopt)
+  clients.pets << user_adopt
 
-else client_command != "adopt" || "cc" || "ca" || "clients" || "animals"
+else client_command != "1" || "2" || "3" || "4" || "5"
   puts "*************"
   puts "Please enter in a valid option"
   puts "*************"
+
+end
+
+end
+
+# adopt remove animal from the animals array and then add it to the clients pets array 
+
+# def adopt_animal(animal_names)
+#   adopt = animals.reject!{|animal| animal_names == user_adopt}
+#   pets << adopt
+# end
+
+# put animal up for an adoption the animal needs to be removed from the clients pets array and added to the shelters animal array
+
+
+
+
+def adopt(animal_name, client_name)
+  animal = animals.delete{|animal| animal_name = animal.name}
+  client = clients{|client| client_name = client.name}
+  clients.pets << animal
+
+end 
+
+
+
 
 
 # def adopt_pet(user_adopt)
@@ -207,7 +241,5 @@ else client_command != "adopt" || "cc" || "ca" || "clients" || "animals"
   # end
     
 
-end
 
-end
 
