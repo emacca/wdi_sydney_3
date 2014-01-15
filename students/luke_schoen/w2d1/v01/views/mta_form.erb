@@ -1,25 +1,31 @@
 <h1> MTA route! </h1>
 <form action"/mta_form" method="get"> 			<!-- path that it goes to -->
-	<label for="first">Create line: ...</label> 
-	<select name="first"> 
-		<option>generate</option>
-	</select>
 	<br><br>
 	<h2>Please enter route details below:</h2>
-	<label for="second_start_line">Start line:</label>
-	<input type="text" name="second_start_line">
+	<label for="line1">Start line:</label>
+	<input type="text" name="line1">
 	<br>
-	<label for="third_start_stop">Start stop:</label>
-	<input type="text" name="third_start_stop">
+	<label for="station1">Start stop:</label>
+	<input type="text" name="station1">
 	<br>
-	<label for="fourth_finish_line">Finish line:</label>
-	<input type="text" name="fourth_finish_line">
+	<label for="line2">Finish line:</label>
+	<input type="text" name="line2">
 	<br>
-	<label for="fifth_finish_stop">Finish stop:</label>
-	<input type="text" name="fifth_finish_stop">
+	<label for="station2">Finish stop:</label>
+	<input type="text" name="station2">
 	<br>
 
 	<button>Count stops!</button>
 </form>
 
-<p>Total stops: <%= @result %></p>
+<p>Total stops: <%= @journey_count %></p>
+
+<p>Testing:<br>
+	Intersection1 Index: <%= @intersection1 %><br>
+	Intersection2 Index: <%= @intersection2 %><br>
+	Journey1 Station1 Index: <%= @journey1_station1_index %><br>
+	Journey2 Station2 Index: <%= @journey2_station2_index %><br>
+	Journey1 Count: <%= @journey1_count %><br>
+	Journey2 Count: <%= @journey2_count %><br>
+
+</p>
