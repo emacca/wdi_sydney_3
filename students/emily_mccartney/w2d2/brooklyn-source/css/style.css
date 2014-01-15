@@ -1,0 +1,59 @@
+/*GENERAL*/
+body{
+ font-size: 12px;
+ line-height: 17px;
+ font-family: "Times New Roman", serif;
+ color: #656565;
+}
+
+/*TYPOGRAPHY*/
+h1{
+ font-size: 30px;
+ line-height:47px;
+}
+
+h2{
+ font-size: 14px;
+ font-weight: bold;
+ padding: 5px 0px;
+}
+
+h6{
+ margin:0;
+ padding:0;
+ color:#6abee2;
+}
+
+p{
+font-weight: 100;
+margin-bottom: 20px;
+}
+
+/*IN BOD DIV ELEMENTS*/
+#container{
+ width:700px;
+ padding:20px 50px;
+}
+
+a {
+ padding-right:0px;
+}
+
+span{
+ color:#6abee2;
+}
+
+span a:hover{
+color:#ffcc00;
+cursor:pointer;
+}
+
+/*IMAGE CHANGES*/
+.press img{
+ width: 168px;
+border: 2px solid #ccc;
+}
+
+a:hover img{
+ border:solid 2px #20222a;
+}

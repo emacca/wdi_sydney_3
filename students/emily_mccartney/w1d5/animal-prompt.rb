@@ -1,46 +1,11 @@
-# Define Animal as a class
-class Animal
+require 'pry'
+require 'pry-debugger'
 
-  attr_accessor :name, :a_age, :petsname, :gender, :toys
+require_relative "animal"
+require_relative "shelter"
+require_relative "client"
 
-  def initialize(name=nil, a_age=nil, petsname=nil, gender=nil, toys =[])
-  end
-  def to_s
-    "The animal is a #{@name} their name is #{petsname}. The age is #{@a_age}. The gender is #{@gender}. The toys are #{@toys.join(',')}."
-  end
-end
-
-class Client
-
-  attr_accessor :name, :children, :age, :numpets, :pets
-
-  def initialize(name=nil, children=nil, age=nil, numpets=nil, pets=[])
-  end 
-  def to_s
-    "The Clients name is #{@name}. You have #{@children} children. You are #{@age} years old. You have #{numpets} pets and their name(s) are #{@pets}."
-  end 
-end 
-
-class Shelter 
-   attr_accessor :shelter_name, :animals, :shelter_description
-
-   def initialize(shelter_name)
-    @shelter_name = shelter_name
-    @animals =[]
-    @shelter_description = shelter_description
-  end
-  def add_animal(animal)
-    animals << animal
-    puts "I now have #{animals.count} animals"
-  end
-  def add_client(client)
-    clients << client
-    puts "There are  #{clients.count} clients"
-  end
-
-end 
-
-animal1 = Animal.new
+animal1 = Animal.new #("monkey","chimps",2,"male",["ball","bark","stick"])
 animal1.name = "monkey"
 animal1.petsname = "chimps"
 animal1.a_age = 2
@@ -59,37 +24,30 @@ client1.name = "emily"
 client1.children = 4
 client1.age = 22
 client1.numpets = 2
-client1.pets = ["monkey", "bella"]
+client1.pets = []
 
 
 newshelter= Shelter.new("HapiTails")
-#prints out the shelter name and the animals in there
-# newshelter.add_animal(animal1)
-
-animals =[animal1, animal2]
-clients = [client1]
-pets = []
-# adopted_pets = []
+newshelter.clients << client1
+newshelter.animals << animal1 << animal2
   
 
 puts "Welcome to #{newshelter.shelter_name} Animal Shelter"
 loop do 
 #shelter will display the count of anaimals and the count of clients 
-puts "Here at #{newshelter.shelter_name} we have #{animals.count} animals and have #{clients.count} clients."
+puts "Here at #{newshelter.shelter_name} we have #{newshelter.animals.count} animals and have #{newshelter.clients.count} clients."
 puts "-----------------"
 puts "Choose what you want to do?"
 puts "1. Create a client"  
 puts "2. Create an animal" 
 puts "3. Look at clients"
 puts "4. Look at animals"
-puts "5. adopt an animal" 
+puts "5. adopt an animal"
+puts "6. put animals up for adoption" 
 puts "----------------"
 puts "To exit type --- q"
 client_command = gets.chomp.downcase
 
-break if client_command == "q"
-
-#ask do you want to add a client? If they want to add a client it asks them to put in their details all these details will be stored in the clients array. This will add them to the clients list
 
 if client_command == "1"
   puts "what is your name?"
@@ -114,9 +72,7 @@ if client_command == "1"
   client_create.numpets = c_num_pets
   client_create.pets = c_pets
 
-  clients.push(client_create)
-
-#do you want to add animals to the shelter? if they want to add an animal to the shelter it asks for the details of the animal and then it adds the animal to the animal array.
+  newshelter.clients.push(client_create)
 
 elsif client_command == "2"
   puts "what animal do you want to add?"
@@ -141,104 +97,76 @@ elsif client_command == "2"
   animal_create.gender = a_gender
   animal_create.toys = a_toys
 
-  animals.push(animal_create)
+  newshelter.animals.push(animal_create)
 
 elsif client_command == "3"
-  puts clients.map{|client| client.name}
+  puts newshelter.clients.map{|client| client.name}
 
   puts "what client do you want to see?"
   clients_information = gets.chomp.downcase
 
-  client_listing = clients.find{|client| client.name == clients_information }
+  client_listing = newshelter.clients.find{|client| client.name == clients_information }
 
   puts client_listing
 
  elsif client_command == "4"
-  puts animals.map{|animal| animal.name}
+  puts newshelter.animals.map{|animal| animal.name}
 
   puts "What animal do you want to see?"
   animal_information = gets.chomp.downcase
 
-  animal_listing = animals.find{|animal| animal.name == animal_information }
+  animal_listing = newshelter.animals.find{|animal| animal.name == animal_information }
 
   puts animal_listing
 
-#do you want to adopt pets? if so it will display the animals and then the client can select it and it will go into their client pets array. 
 
 elsif client_command == "5"
   puts "What client wants to adopt?"
   client_names = gets.chomp.downcase
-  client_names = clients.find{|client| client.name == client_names}
+  client = newshelter.clients.find{|client| client.name == client_names}
   # puts client_names
   
 
   puts "What animal would you like to adopt?"
-  animal_names = animals.map{|animal| animal.name}
+  animal_names = newshelter.animals.map{|animal| animal.name}
   puts animal_names
-
   user_adopt = gets.chomp.downcase
 
-  user_adopt = animals.pop
-  clients.pets << user_adopt
+  animal_delete = newshelter.animals.find {|animal| user_adopt == animal.name} #find
+  user_adopt = newshelter.animals.delete(animal_delete)#pass it in to delete
 
-else client_command != "1" || "2" || "3" || "4" || "5"
+  client.pets << user_adopt
+
+elsif client_command == "6"
+  puts "What client is wanting to do?"
+  client_names = gets.chomp.downcase
+  client = newshelter.clients.find{|client| client.name == client_names}
+
+  puts "your animals do you want to put up for adoption?"
+  puts client.pets.map{|pet| pet.name}
+
+  puts "choose the pet"
+  pet_choice = gets.chomp.downcase
+  
+  pet_to_adopt = client.pets.find{|pet| pet.name == pet_choice}
+  adopted_pet = client.pets.delete(pet_to_adopt)
+
+  newshelter.animals << adopted_pet
+
+elsif client_command == "q"
+  
+else
   puts "*************"
   puts "Please enter in a valid option"
   puts "*************"
 
 end
+break if client_command == "q"
 
 end
 
-# adopt remove animal from the animals array and then add it to the clients pets array 
-
-# def adopt_animal(animal_names)
-#   adopt = animals.reject!{|animal| animal_names == user_adopt}
-#   pets << adopt
-# end
-
-# put animal up for an adoption the animal needs to be removed from the clients pets array and added to the shelters animal array
 
 
-
-
-def adopt(animal_name, client_name)
-  animal = animals.delete{|animal| animal_name = animal.name}
-  client = clients{|client| client_name = client.name}
-  clients.pets << animal
-
-end 
-
-
-
-
-
-# def adopt_pet(user_adopt)
-#   animals.reject!{|animal| animal.name == user_adopt}
-# end
-
-
-# i = animal_names.any? {|animal| user_adopt.include?(animal) }
-#       puts i
-#   if i == true   
-#     animals.reject!{animal_names.any? {|animal| user_adopt.include?(animal) }}
-#   else 
-#     puts "that animal isnt there"
-#   end
-
-
-
-  # idont = animals.include?(user_adopt)
-  # puts idont
-  # if idont == true
-  # delete!
-
-  # elsif animal_names.include?(user_adopt)
-  # animal_names.reject!{|animal| user_adopt == animal_names}
-
-  # elsif 
-  #   puts "there isnt that animal listed"
-  # end
     
 
 

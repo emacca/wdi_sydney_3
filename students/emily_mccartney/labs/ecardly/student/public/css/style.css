@@ -1,0 +1,147 @@
+.clear:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+body {
+  background: url('../images/background.jpg');
+  background-repeat: repeat-x;
+  background-color: #d6d6d6;
+}
+
+p {
+  display: block;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+h1 {
+  width: 216px;
+  height: 213px;
+  background: url('../images/logo.png');
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+h2{
+font-size: 20px;
+-webkit-margin-before: 0em;
+-webkit-margin-after: 0em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+}
+
+h3{
+  text-transform: uppercase;
+  font-size:12px;
+}
+
+#sidebar{
+  float:right;
+  width:280px;
+  background-color:#fff;
+}
+
+#container {
+  width: 940px;
+  margin: 0 auto;
+}
+
+.ecard {
+  background-color: #FFF;
+  width:640px;
+  margin-right:20px;
+  float:left;
+}
+
+.ecard-description{
+  padding-left:20px;
+  line-height:20px;
+  font-family:helvetica, arial;
+  font-size:12px;
+}
+
+.ecard-description a {
+  color: #cc6633;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight:bold;
+}
+
+.ecard img {
+  display: block;
+  padding:20px;
+}
+
+.comments{
+  padding-left:20px;
+  line-height:20px;
+  font-family:helvetica, arial;
+  font-size:12px;
+  border-top:dashed 1px #000;
+  border-bottom:solid 1px #000;
+  width:580px;
+  margin:0 auto;
+  margin-top:20px;
+  margin-bottom:30px;
+  line-height:30px;
+}
+
+.comments a{
+  color:#cc6633;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+h2{
+  padding-top:20px;
+  padding-left:20px;
+  color:#000;
+}
+
+.clear {
+  clear: both;
+}
+
+.sidebarlinks{
+  width:260px;
+  padding-left:20px;
+  padding-top:20px;
+}
+
+.sidebarlinks a{
+  color:#000;
+  font-size:12px;
+  line-height:15px;
+  text-decoration: none;
+  font-weight:bold;
+}
+
+.sidebarimages{
+  padding-bottom:30px;
+  padding-top:20px;
+  padding-left:20px;
+}
+
+.sidebarimages img{
+  padding-bottom:20px;
+}
+
+#footer{
+  width:940px;
+  margin:0 auto;
+  text-align:center;
+  padding-top:30px;
+  padding-bottom:30px;
+  clear:both;
+
+}

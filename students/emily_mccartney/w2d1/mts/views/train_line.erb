@@ -1,0 +1,27 @@
+<h1>Train Line</h1>
+<form action="/train_line" method="get">
+
+  <label for "startline">Select your start line</label>
+   <select name="startline">
+    <option>n</option>
+    <option>l</option>
+    <option>l6</option>
+   </select>
+  <br/>
+  <label for "startstation">Type your start station</label>
+   <input type="text" name="startstation">
+  <br/>
+  <label for "endline">Select your end line</label>
+   <select name="endline">
+    <option>n</option>
+    <option>l</option>
+    <option>l6</option>
+   </select>
+  <br/>
+  <label for "endstation">Type your end station</label>
+   <input type="text" name="endstation">
+  <br/>
+  <button>Check</button>
+</form>
+
+<p> The Path is <%=@result%></p>
