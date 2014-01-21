@@ -18,7 +18,7 @@
      padding: 5px;
      background-color: #bbccee;
      height: 75px;
-     padding: 0px; 
+     padding: 5px 0px 0px 30px; 
      /*position:relative;*/
      /*left:-100px;*/
      top:0px;
@@ -31,7 +31,7 @@
 	 width: 150px;
 	 height: 75px;
 	 display: inline-block;
-	 margin-left: 75px;
+	 margin: 25px 0px 0px 25px;
 }
  
 #logo h1 {

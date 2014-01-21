@@ -22,7 +22,7 @@
 
 	<div id= "container" class="fluid">
 		<div id="top">
-	    	<div id="logo">
+	    	<div>
 	    		<h1>CRUD Blog</h1>
 	        </div>
 		</div>
@@ -36,12 +36,16 @@
 			</div>	
 
 			<div id="menu">
-				<ul class="nav">
-					<h1>Main Menu</h1>
-					<li><a href="/">Display Posts</a></li>
-					<li><a href="/create">Create Post</a></li>
-					<li><a href=""></a></li>
-				</ul>
+				<div>
+					<ul class="nav">
+						<h1>Main Menu</h1>
+						<li><a href="/">Display Posts</a></li>
+						<li><a href="/create">Create Post</a></li>
+					</ul>
+				</div>
+				<div id="logo">
+	 
+	        	</div>
 			</div>
 
 		</div>
@@ -87,6 +91,17 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
 	<script src="/js/bootbox.min.js"></script>
+
+	<!-- pulls from <button id="bootbox" ... 
+	<script> 
+	  $('#bootbox').on('click',function(){
+
+	  	bootbox.confirm("Are you sure?", function(result) {
+		  Example.show("Confirm result: "+result);
+		}); 
+	  });
+		
+	</script>-->
 
 
 </body>

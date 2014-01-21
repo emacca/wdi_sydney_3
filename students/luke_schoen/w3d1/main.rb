@@ -22,30 +22,60 @@ get '/' do
 		@sort_type1b = "ID"
 		@sort_type2a = "title"
 		@sort_type2b = "Title"
+		@sort_type3a = "updated_at"
+		@sort_type3b = "Last Updated"
+		@sort_type_sw_date4a = "created_at"
+		@sort_type_sw_date4b = "Creation Date"
 		@res = run_sql(sql)	
 		erb :display
 	elsif params[:sort_by] == "title" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
 		@sort_type1a = "id"
 		@sort_type1b = "ID"
-		@sort_type2a = ""
-		@sort_type2b = ""
+		@sort_type2a = "created_at"
+		@sort_type2b = "Creation Date"
+		@sort_type3a = "updated_at"
+		@sort_type3b = "Last Updated"
+		@sort_type_sw_date4a = @sort_type2a 
+		@sort_type_sw_date4b = @sort_type2b
 		@res = run_sql(sql)
 		erb :display
+
+	elsif params[:sort_by] == "updated_at" 
+		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
+		@sort_type1a = "id"
+		@sort_type1b = "ID"
+		@sort_type2a = "title"
+		@sort_type2b = "Title"
+		@sort_type3a = "created_at"
+		@sort_type3b = "Creation Date"
+		@sort_type_sw_date4a = "updated_at"
+		@sort_type_sw_date4b = "Last Updated"
+		@res = run_sql(sql)
+		erb :display
+
 	elsif params[:sort_by] == "id" 
 		sql = "SELECT * FROM blog_posts ORDER BY id"
 		@sort_type1a = "created_at"
-		@sort_type1b = "Date"
+		@sort_type1b = "Creation Date"
 		@sort_type2a = "title"
 		@sort_type2b = "Title"
+		@sort_type3a = "updated_at"
+		@sort_type3b = "Last Updated"
+		@sort_type_sw_date4a = @sort_type1a 
+		@sort_type_sw_date4b = @sort_type1b
 		@res = run_sql(sql)
 		erb :display
 	elsif !(params[:sort_by].present?)
 		sql = "SELECT * FROM blog_posts ORDER BY id"
 		@sort_type1a = "created_at"
-		@sort_type1b = "Date"
+		@sort_type1b = "Creation Date"
 		@sort_type2a = "title"
 		@sort_type2b = "Title"
+		@sort_type3a = "updated_at"
+		@sort_type3b = "Last Updated"
+		@sort_type_sw_date4a = @sort_type1a 
+		@sort_type_sw_date4b = @sort_type1b
 		@res = run_sql(sql)
 		erb :display
 	end
