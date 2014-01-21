@@ -24,7 +24,9 @@
 				</td>
 				<td class="table_desc_150">
 			<%#= @blog['abstract'] %> 
-<input type="text" name="abstract" value="<%= @blog['abstract'] %>"> 
+<!--<input type="text" name="abstract" value="<%#= @blog['abstract'] %>"> -->
+
+<textarea id="text_limit" name="abstract" rows="2"><%= @blog['abstract'] %></textarea>
 				</td>
 				<td class="table_desc_100">
 			<%= @blog['created_at'] %>

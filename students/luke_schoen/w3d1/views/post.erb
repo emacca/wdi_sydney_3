@@ -37,7 +37,8 @@
 				</td>
 				<td>
 			<!--<a href="/posts/<%#= @blog['id'] %>/delete" data-method="post">Delete</a>-->
-	<form method='post' action="/posts/<%= @blog['id'] %>/delete">
+	<form method='post' action="/posts/<%= @blog['id'] %>">
+			<input type="hidden" name="_method" value="delete">
 			<button class="btn btn-danger">Delete</button>
 	</form>
 				</td>

@@ -109,14 +109,24 @@ tr td {
 	margin: 15px;
 }
 
+.input_limit {
+	width: 300px; /* <input .. width> */
+}
+
 .details {
 	display: inline-block;
 	float: left;
 	margin: 15px;
 }
 
-#text_limit {
+#text_limit{
 	max-width: 150px;
+}
+
+#text_limit_create {
+	width: 300px;
+	max-width: 350px;
+	max-height: 25px;
 }
 
 .order_by {

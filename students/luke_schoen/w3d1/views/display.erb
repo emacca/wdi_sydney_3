@@ -52,8 +52,9 @@
 				</td>
 				<td>
 			<!--<a href="/posts/<%#= row['id'] %>/delete" data-method="post">Delete</a>-->
-	<form method="post" action="/posts/<%= row['id'] %>/delete">
-			<button id="bootbox" class="btn btn-danger">Delete</button> 
+	<form method="post" action="/posts/<%= row['id'] %>">
+			<input type="hidden" name="_method" value="delete">
+			<button id="deletebtn" class="btn btn-danger">Delete</button> 
 
 			<!--DID NOT WORK IF IT SAID <BUTTON TYPE="BUTTON" ... WHY??? ==> MUST BE SUBMIT TYPE!-->
 	</form>

@@ -7,14 +7,21 @@ require 'sinatra/reloader' if development?
 require 'active_support/all'
 require 'pg'
 
+use Rack::MethodOverride # allows use put and delete HTTP instead of just post / get
+
 # if use a 'before do' block - everytime before every route perform these actions
 
 before do
 	
 end
 
-# GET COLLECTION OF POSTS AND DISPLAY
 get '/' do
+	redirect to '/posts'
+end
+
+
+# GET COLLECTION OF POSTS AND DISPLAY
+get '/posts' do #####
 # in homepage if want list of gets
 	if params[:sort_by] == "created_at" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
@@ -83,7 +90,7 @@ get '/' do
 end
 
 # GET CREATE FORM AND DISPLAY
-get '/create' do
+get '/posts/create' do
 # show the actual form
 # _menu_sub_create.erb
 	erb :create
@@ -129,7 +136,7 @@ post '/posts/:id' do
 	redirect to '/'
 end
 
-post '/posts/:id/delete' do
+delete '/posts/:id' do
 	sql = "DELETE FROM blog_posts WHERE id=#{params[:id]};"
 	run_sql(sql)
 	redirect to '/'

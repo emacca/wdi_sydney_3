@@ -12,14 +12,24 @@
 					<p><label>Author:</label></p>
 				</div>
 				<div class="create">
-					<p><input type="text" name="title"></p>
-					<p><input type="text" name="abstract"></p>
-					<p><input type="text" name="body_text"></p>
-					<p><input type="text" name="author"></p>
+
+					<p><input class="input_limit" type="text" name="title"></p>
+					<p>
+						<!--<input type="text" name="abstract">-->
+						<textarea id="text_limit_create" name="abstract" rows="1"></textarea>
+					</p>
+					<p>
+						<!--<input type="text" name="body_text">-->
+						<textarea id="text_limit_create" name="body_text" rows="1"></textarea>
+					</p>
+					<p><input class="input_limit" type="text" name="author"></p>
 				</div>
-				<p>
-				<button type="submit" class="btn btn-success">Create New Post</button>
-				</p>
+				<br>
+				<div>
+					<p>
+						<button type="submit" class="btn btn-success">Create New Post</button>
+					</p>
+				</div>
 				
 			</form>
 
