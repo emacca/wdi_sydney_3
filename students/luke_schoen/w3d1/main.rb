@@ -9,17 +9,30 @@ require 'pg'
 
 # if use a 'before do' block - everytime before every route perform these actions
 
+before do
+	
+end
+
 # GET COLLECTION OF POSTS AND DISPLAY
 get '/' do
 # in homepage if want list of gets
-	if params[:sort_by].present?
+	if params[:sort_by] == "created_at" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
-	else
-		sql = "SELECT * FROM blog_posts ORDER BY id"
-	# want result to be available in views so use instance variable
-	end
+		@sort_type = "id"
 		@res = run_sql(sql)	
 		erb :display
+	elsif params[:sort_by] == "id" 
+		sql = "SELECT * FROM blog_posts ORDER BY id"
+		@sort_type = "created_at"
+		@res = run_sql(sql)
+		erb :display
+	elsif !(params[:sort_by].present?)
+		sql = "SELECT * FROM blog_posts ORDER BY id"
+		@sort_type = "created_at"
+		@res = run_sql(sql)
+		erb :display
+	end
+		
 end
 
 # GET CREATE FORM AND DISPLAY
