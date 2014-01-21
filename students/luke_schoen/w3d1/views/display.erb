@@ -5,12 +5,15 @@
 <div id="display_brief">
     <h2>Display Brief:</h2><br>
 
+    <a href="/?sort_by=created_at">Order By Date</a>
+
 	<p> 
 		<table>
 			<tr>
 				<th>ID</th>
 				<th>Title</th>
 				<th>Abstract</th>
+				<th>Created Date</th>
 				<th>Details</th>
 			</tr>
 	<% @res.each do |row| %>
@@ -23,6 +26,9 @@
 				</td>
 				<td>
 			<%= row['abstract'] %> 
+				</td>
+				<td>
+			<%= row['created_at'] %> 
 				</td>
 				<td>
 			<!--<form method='get' action="/posts/<%#= row['id'] %>">

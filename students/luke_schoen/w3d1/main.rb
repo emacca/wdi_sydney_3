@@ -12,10 +12,14 @@ require 'pg'
 # GET COLLECTION OF POSTS AND DISPLAY
 get '/' do
 # in homepage if want list of gets
-	sql = "SELECT * FROM blog_posts ORDER BY id"
-# want result to be available in views so use instance variable
-	@res = run_sql(sql)	
-	erb :display
+	if params[:sort_by].present?
+		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
+	else
+		sql = "SELECT * FROM blog_posts ORDER BY id"
+	# want result to be available in views so use instance variable
+	end
+		@res = run_sql(sql)	
+		erb :display
 end
 
 # GET CREATE FORM AND DISPLAY
@@ -26,7 +30,7 @@ get '/create' do
 end
 
 # GET FROM COLLECTION OF POSTS A SPECIFIC ID AND DISPLAY (IF USER CLICK 'VIEW DETAILS')
-get '/post/:id' do
+get '/posts/:id' do
 # if user go to this route it should show the form again
 # links for each must be shown in the home.erb, so if user clicks link it will go to page of anchor
 	sql = "SELECT * FROM blog_posts WHERE id=#{params[:id]};"
