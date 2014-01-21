@@ -1,0 +1,54 @@
+<%# content_for :content do %>
+
+<div id="display_content">
+    <h2>Display Content:</h2><br>
+
+	<p> 
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Abstract</th>
+				<th>Details</th>
+			</tr>
+
+			<tr>
+				<td>
+		 	<%= @blog['id'] %>
+		 		</td>
+		 		<td> 
+			<%= @blog['title'] %> 
+				</td>
+				<td>
+			<%= @blog['abstract'] %> 
+				</td>
+				<td>
+			<!--<form method='get' action="/">
+				<button>Hide</button>
+			</form>-->
+			<a href="/">Hide</a>
+				</td>
+			</tr>
+
+		</table>
+	</p>
+
+<%# display individual blog post details%>
+	
+	<p>
+		<form method="get" action="/posts/<%= @blog['id'] %>">
+			<div class="details">
+				<label>Body Text:</label><br>
+				<label>Author:</label><br>
+				<label>Created:</label>
+			</div>
+			<div class="details">
+				<%= @blog['body_text'] %><br> 
+				<%= @blog['author'] %><br>
+				<%= @blog['created_at'] %>
+			</div>
+		</form>
+	</p>
+
+</div>
+		
