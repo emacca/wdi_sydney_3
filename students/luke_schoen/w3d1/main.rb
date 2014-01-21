@@ -18,17 +18,34 @@ get '/' do
 # in homepage if want list of gets
 	if params[:sort_by] == "created_at" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
-		@sort_type = "id"
+		@sort_type1a = "id"
+		@sort_type1b = "ID"
+		@sort_type2a = "title"
+		@sort_type2b = "Title"
 		@res = run_sql(sql)	
+		erb :display
+	elsif params[:sort_by] == "title" 
+		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
+		@sort_type1a = "id"
+		@sort_type1b = "ID"
+		@sort_type2a = ""
+		@sort_type2b = ""
+		@res = run_sql(sql)
 		erb :display
 	elsif params[:sort_by] == "id" 
 		sql = "SELECT * FROM blog_posts ORDER BY id"
-		@sort_type = "created_at"
+		@sort_type1a = "created_at"
+		@sort_type1b = "Date"
+		@sort_type2a = "title"
+		@sort_type2b = "Title"
 		@res = run_sql(sql)
 		erb :display
 	elsif !(params[:sort_by].present?)
 		sql = "SELECT * FROM blog_posts ORDER BY id"
-		@sort_type = "created_at"
+		@sort_type1a = "created_at"
+		@sort_type1b = "Date"
+		@sort_type2a = "title"
+		@sort_type2b = "Title"
 		@res = run_sql(sql)
 		erb :display
 	end
