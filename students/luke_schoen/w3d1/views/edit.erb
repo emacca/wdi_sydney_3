@@ -13,18 +13,21 @@
 				<th>Details</th>
 			</tr>
 
+<form method='post' action="/posts/<%= @blog['id'] %>">
 			<tr>
 				<td>
 		 	<%= @blog['id'] %>
 		 		</td>
 		 		<td class="table_desc_150"> 
-			<%= @blog['title'] %> 
+			<%#= @blog['title'] %> 
+<input type="text" name="title" value="<%= @blog['title'] %>"> 
 				</td>
 				<td class="table_desc_150">
-			<%= @blog['abstract'] %> 
+			<%#= @blog['abstract'] %> 
+<input type="text" name="abstract" value="<%= @blog['abstract'] %>"> 
 				</td>
 				<td class="table_desc_100">
-			<%= @blog['created_at'] %> 
+			<%= @blog['created_at'] %>
 				</td>
 				<td>
 			<!--<form method='get' action="/">
@@ -33,13 +36,11 @@
 			<a href="/">Hide</a>
 				</td>
 				<td>
-			<a href="/posts/<%= @blog['id'] %>/edit">Edit</a>
-				</td>
-				<td>
 			<!--<a href="/posts/<%#= @blog['id'] %>/delete" data-method="post">Delete</a>-->
-	<form method='post' action="/posts/<%= @blog['id'] %>/delete">
-			<button class="btn btn-danger">Delete</button>
-	</form>
+	<!--<form method='get' action="/posts/<%#= @blog['id'] %>/edit">
+			<button class="btn btn-warning">Reset Fields</button>
+	</form>-->
+	<a href="/posts/<%= @blog['id'] %>/edit" data-method="get">Reset Fields</a>
 				</td>
 
 			</tr>
@@ -52,25 +53,30 @@
 	<p>
 		<form method="get" action="/posts/<%= @blog['id'] %>">
 			<div class="details">
-				<p><label for="body_text">Body Text:</label><p>
+				<p><label for="body_text">Body Text:</label></p>
 			</div>
-			<div id="text_limit" class="details">
-				<p><%= @blog['body_text'] %></p> 
+			<div class="details">
+				<%#= @blog['body_text'] %>
+
+<p><textarea id="text_limit" name="body_text" rows="2"><%= @blog['body_text'] %></textarea></p>
+  
+				<%#= @blog['author'] %>
 			</div>
+
 			<div class="details">
 				<p><label for="author">Author:</label></p>
-				<p><label for="updated_at">Updated:</label></p>
+				<p><label>Updated:</label></p>
+			</div>
+
+			<div class="details">
+				<p><input type="text" name="author" value="<%= @blog['author'] %>"></p>
+				<p><%= @blog['updated_at'] %></p>
 			</div>
 			<div class="details">
-				<p><%= @blog['author'] %></p>
-				<p><%= @blog['updated_at'] %></p>
+				<button class="btn btn-primary">Update Post</button>
 			</div>
 		</form>
 	</p>
 
 </div>
-
-
-
-
-
+		

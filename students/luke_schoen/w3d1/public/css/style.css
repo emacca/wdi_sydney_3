@@ -14,7 +14,7 @@
 
 #top {
      margin: 0 auto; /*centers our container on the page */
-     width: 940px;
+     width: 1040px;
      padding: 5px;
      background-color: #bbccee;
      height: 75px;
@@ -86,11 +86,13 @@
      background-color: black;
 	 color: white;
      padding: 15px;
-     width: 650px;
-     min-height: 360px;
+     width: 750px;
+     max-height: 360px;
      margin: 15px 0px 15px 15px;
      display: inline-block;
      float: left;
+     overflow-y: scroll;
+     /*overflow-y: hidden;*/
 }
 
 tr td {
@@ -113,10 +115,22 @@ tr td {
 	margin: 15px;
 }
 
+#text_limit {
+	max-width: 150px;
+}
+
 .order_by {
 	display: inline-block;
 	float: right;
 	margin: 15px;
+}
+
+.table_desc_150 {
+	width: 150px;
+}
+
+.table_desc_100 {
+	width: 100px;
 }
 
 /*----------------------------------------------------------------------------- 
@@ -125,7 +139,7 @@ tr td {
 
 #footer {
 	 margin: 0 auto;
-	 width: 940px;
+	 width: 1040px;
      padding: 15px;
      background-color: #bbccee;
 	 color: white;

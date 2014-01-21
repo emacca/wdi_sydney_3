@@ -29,13 +29,13 @@
 				<td>
 		 	<%= row['id'] %>
 		 		</td>
-		 		<td> 
+		 		<td class="table_desc_150"> 
 			<%= row['title'] %> 
 				</td>
-				<td>
+				<td class="table_desc_150">
 			<%= row['abstract'] %> 
 				</td>
-				<td>
+				<td class="table_desc_100">
 			<%= row['created_at'] %> 
 				</td>
 				<td>
@@ -44,6 +44,24 @@
 			</form>-->
 			<a href="/posts/<%= row['id'] %>">Show</a>
 				</td>
+				<td>
+			<a href="/posts/<%= row['id'] %>/edit">Edit</a>
+				</td>
+				<td>
+			<!--<a href="/posts/<%#= row['id'] %>/delete" data-method="post">Delete</a>-->
+	<form method="post" action="/posts/<%= row['id'] %>/delete">
+			<button class="btn btn-danger">Delete</button> 
+			<!--DID NOT WORK IF IT SAID <BUTTON TYPE="BUTTON" ... WHY???-->
+	</form>
+		<!--<form method="post" action="/posts/<%#=row['id']%>/delete">
+				<button>Delete</button>
+		</form>-->
+				</td>
+			<!--<a href="http://example.com/profile" param1="value1" param2="value2" data-method="post" >Delete</a>-->
+			<!--<a href="/cats/<%#= row['id'] %>/edit">edit</a>-->
+			<!--<form method='post' action="/cats/<%#= row['id'] %>/delete">
+				<button>Details</button>
+			</form>-->
 			</tr>
 	<% end %>
 		</table>

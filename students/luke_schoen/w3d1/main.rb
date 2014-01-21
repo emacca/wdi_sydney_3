@@ -85,6 +85,26 @@ post '/posts' do
 	redirect to '/'
 end
 
+
+get '/posts/:id/edit' do
+	sql = "SELECT * FROM blog_posts WHERE id=#{params[:id]}"
+	@records = run_sql(sql) # returns a list of records 
+	@blog = @records[0] 
+	erb :edit
+end
+
+post '/posts/:id' do
+	sql = "UPDATE blog_posts set title = '#{params[:title]}', abstract = '#{params[:abstract]}', body_text = '#{params[:body_text]}', author = '#{params[:author]}', updated_at = '#{Time.now}' WHERE id = #{params[:id]};"
+	run_sql(sql)
+	redirect to '/'
+end
+
+post '/posts/:id/delete' do
+	sql = "DELETE FROM blog_posts WHERE id=#{params[:id]};"
+	run_sql(sql)
+	redirect to '/'
+end
+
 def run_sql(sql)
 # connect to the cats db
 	conn = PG.connect(:dbname => 'crud_blog')
