@@ -97,7 +97,7 @@ get '/posts/:id' do
 # if user go to this route it should show the form again
 # links for each must be shown in the home.erb, so if user clicks link it will go to page of anchor
 	#sql = "SELECT * FROM blog_posts WHERE id=#{params[:id]};"
-	sql = "SELECT * FROM blog_posts LEFT OUTER JOIN blog_comments ON blog_posts.id = blog_comments.post_id ORDER BY id ASC;"
+	sql = "SELECT * FROM blog_posts LEFT OUTER JOIN blog_comments ON blog_posts.id = blog_comments.post_id AND blog_posts.id = #{params[:id]};"
 	@records = run_sql(sql) # returns a list of records 
 	@blog = @records[0] # @blog is actually a collection in sql
 	erb :post

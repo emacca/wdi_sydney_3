@@ -6,7 +6,7 @@
 
 <div id="display_content">
     <h2>Display Brief:</h2><br>
-	
+	<!-- &#10225; http://ikreator.com/special-characters/ -->
 	<div>
 		<div class="order_by">
 			<a href="/?sort_by=<%=@sort_type3a%>"><%= @sort_type3b %></a>
@@ -26,10 +26,10 @@
 	<p> 
 		<table>
 			<tr>
-				<th>ID</th>
+				<th>ID</th> 
 				<th>Title</th>
 				<th>Abstract</th>
-				<th><%=@sort_type_sw_date4b%></th>
+				<th><%= @sort_type_sw_date4b%></th>
 				<th>Details</th>
 				<th></th>
 				<th></th>
@@ -38,7 +38,7 @@
 	<% @res.each do |row| %>
 			<tr>
 				<td>
-		 	<%= row['id'] %>
+		 	<%= row['id'] %> 
 		 		</td>
 		 		<td class="table_desc_150"> 
 			<%= row['title'] %> 
@@ -72,7 +72,7 @@
 				</td>
 
 				<td>
-			<a href="/posts/comments/<%= row['id']%>/<%= !row['post_id'] %>"><%= !(!row['post_id']) %></a>
+			<a href="/posts/comments/<%= row['id'] %>/<%= !row['post_id'] %>"><%= !(!row['post_id']) %></a>
 				</td>
 
 
