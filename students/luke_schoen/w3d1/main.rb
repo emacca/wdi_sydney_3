@@ -11,17 +11,17 @@ use Rack::MethodOverride # allows use put and delete HTTP instead of just post /
 
 # if use a 'before do' block - everytime before every route perform these actions
 
-before do
-	
-end
+#before do
+#	
+#end
 
-get '/' do
-	redirect to '/posts'
-end
+#get '/' do
+#	redirect to '/posts'
+#end
 
 
 # GET COLLECTION OF POSTS AND DISPLAY
-get '/posts' do #####
+get '/' do #####
 # in homepage if want list of gets
 	if params[:sort_by] == "created_at" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
@@ -33,8 +33,6 @@ get '/posts' do #####
 		@sort_type3b = "Last Updated"
 		@sort_type_sw_date4a = "created_at"
 		@sort_type_sw_date4b = "Creation Date"
-		@res = run_sql(sql)	
-		erb :display
 	elsif params[:sort_by] == "title" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
 		@sort_type1a = "id"
@@ -45,9 +43,6 @@ get '/posts' do #####
 		@sort_type3b = "Last Updated"
 		@sort_type_sw_date4a = @sort_type2a 
 		@sort_type_sw_date4b = @sort_type2b
-		@res = run_sql(sql)
-		erb :display
-
 	elsif params[:sort_by] == "updated_at" 
 		sql = "SELECT * FROM blog_posts ORDER BY #{params[:sort_by]} DESC;"
 		@sort_type1a = "id"
@@ -58,9 +53,6 @@ get '/posts' do #####
 		@sort_type3b = "Creation Date"
 		@sort_type_sw_date4a = "updated_at"
 		@sort_type_sw_date4b = "Last Updated"
-		@res = run_sql(sql)
-		erb :display
-
 	elsif params[:sort_by] == "id" 
 		sql = "SELECT * FROM blog_posts ORDER BY id"
 		@sort_type1a = "created_at"
@@ -71,8 +63,6 @@ get '/posts' do #####
 		@sort_type3b = "Last Updated"
 		@sort_type_sw_date4a = @sort_type1a 
 		@sort_type_sw_date4b = @sort_type1b
-		@res = run_sql(sql)
-		erb :display
 	elsif !(params[:sort_by].present?)
 		sql = "SELECT * FROM blog_posts ORDER BY id"
 		@sort_type1a = "created_at"
@@ -83,10 +73,9 @@ get '/posts' do #####
 		@sort_type3b = "Last Updated"
 		@sort_type_sw_date4a = @sort_type1a 
 		@sort_type_sw_date4b = @sort_type1b
+	end
 		@res = run_sql(sql)
 		erb :display
-	end
-		
 end
 
 # GET CREATE FORM AND DISPLAY
