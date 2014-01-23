@@ -104,7 +104,7 @@ get '/posts/:id' do
 
 	@blog = Post.find(params[:id])
 	
-	@comments = Comment.where("post_id = #{params[:id]}") # in display it will loop through and display all
+	@comments = Comment.where("post_id = #{params[:id]}").order(:created_at => :desc) # in display it will loop through and display all
 
 	erb :post
 end
@@ -150,18 +150,6 @@ delete '/posts/:id' do
 	@comm = Comment.where("post_id = #{params[:id]}")
 	Comment.delete(@comm)
 	Post.delete(params[:id])
-
-	# order is important due to relationship
-	#if !(Comment.find("post_id = #{params[:id]}").empty?)
-	#	Comment.find("post_id = #{params[:id]}").destroy
-	#end
-	#	Post.delete(params[:id])
-	#Comment.delete(params[:id]).where("id = #{params[:id]}")
-	#Post.delete(params[:id])
-	#Post.delete(
-	#Comment.find(params[:id])).where("post_id = #{params[:id]}")
-	#if Post.comments.count > %>
-	
 
 	redirect to '/'
 end

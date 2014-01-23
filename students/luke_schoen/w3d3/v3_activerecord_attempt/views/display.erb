@@ -6,27 +6,23 @@
 
 <div id="display_content">
 
-	<div>
-    	<div id="dash_title">
-    		<h2>Post Dashboard:</h2>
-		</div>
+	<div id="dash_title">
+		<h2>Post Dashboard:</h2>
+	</div>
 
-	    <div id="order_by_span">
-	    	<div class="order_by">
-				Order By: 
-			</div>
-			<br>
-			<div class="order_by">
-				<a href="/posts?ordering=<%=@sort_type1a%>"><%= @sort_type1b %></a>
-			</div>
-			<div class="order_by">
-				<a href="/posts?ordering=<%=@sort_type2a%>"><%= @sort_type2b %></a>
-			</div>
-			<div class="order_by">
-				<a href="/posts?ordering=<%=@sort_type3a%>"><%= @sort_type3b %></a>
-			</div>
+    <div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type3a%>"><%= @sort_type3b %></a>
 		</div>
-    </div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type2a%>"><%= @sort_type2b %></a>
+		</div>
+		<div class="order_by">
+			<a href="/posts?ordering=<%=@sort_type1a%>"><%= @sort_type1b %></a>
+		</div>
+		<div class="order_by">Order By: 
+		</div>
+	</div>
 	<!-- &#10225; http://ikreator.com/special-characters/ -->
 	
 
