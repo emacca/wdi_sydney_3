@@ -1,16 +1,22 @@
 require 'sinatra'
-require 'pry'
-require 'pry-debugger'
-require 'sinatra/reloader' if development?
-
 require 'active_record'
-require 'active_record/validations'
 
-ActiveRecord::Base.establish_connection(
-  :adapter => "postgresql",
-  :username => "daniel",
-  :database => "cats"
-)
+if development?
+  require 'pry' 
+  require 'pry-debugger'
+  require 'sinatra/reloader'
+end
+
+
+dev_db_settings = {
+  :adapter => 'postgresql',
+  :username => 'daniel',
+  :database => 'cats',
+  :encoding => 'utf8'
+}
+ 
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || dev_db_settings)
+
 
 class Toy < ActiveRecord::Base
   belongs_to :cat
@@ -24,7 +30,6 @@ end
 
 get '/' do
   @cats = Cat.all
-
   erb :home
 end
 
@@ -34,7 +39,6 @@ get '/cats/new' do
 end
 
 post '/cats' do
-  binding.pry
   Cat.create(params[:cat])
   redirect to '/' 
 end
