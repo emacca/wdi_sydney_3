@@ -11,12 +11,11 @@ class AuthorsController < ApplicationController
   # GET /authors/1.json
   def show
   	#@author = Author.find_by_id(params[:id])
-  	@ident = params[:author_id]
-	if !@ident == 4 
-	  flash[:alert] = "oops"
+	if @author.id != 4 
+	  flash.now[:alert] = "oops"
 	  #redirect_to author_url, status: :forbidden
 	else
-	  flash[:notice] = "you're on notice! "
+	  flash.now[:notice] = "you're on notice! "
 	end
   end
 
