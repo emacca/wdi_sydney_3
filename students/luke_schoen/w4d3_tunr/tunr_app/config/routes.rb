@@ -1,11 +1,34 @@
 TunrApp::Application.routes.draw do
 
+# default structure shown below is generated but requires long routes:
+
+  # get "pages/about_us"
+  # get "pages/contact_us"
+  # get "pages/privacy"
+  # get "pages/terms_and_cond"
+ 
+
+# chagne to short routes achieved as follows:
+
+get "about_us" => "pages#about_us"
+get "contact_us" => "pages#contact_us"
+get "privacy" => "pages#privacy"
+get "terms_and_cond" => "pages#terms_and_cond"
+
   resources :artists do
-  	resources :albums
-	resources :songs
+  	resources :albums, shallow:true
+	resources :songs, shallow:true
   end
+
+  resources :albums do
+	resources :songs, shallow:true
+  end
+
+  resources :albums
+  resources :songs
 	
   root :to => 'artists#index' 
+
   #to controller for artists, and action goes to index
 
 end

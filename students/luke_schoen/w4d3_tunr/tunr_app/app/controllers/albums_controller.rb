@@ -4,7 +4,21 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+  	
+  	@artist = Artist.find_by_id(params[:artist_id]) # gathering the id after artist in the browser. if was after album would just use id
+  	if !@artist 
+  		raise "no artist found!"
+
+
+  	else
+  		if @artist.albums.empty?
+	    	@albums = @artist.albums
+	    	flash.now[:notice] = "No albums exist yet for this artist!"
+	    else
+	    	@albums = @artist.albums
+	    end
+  	end
+	  	
   end
 
   # GET /albums/1

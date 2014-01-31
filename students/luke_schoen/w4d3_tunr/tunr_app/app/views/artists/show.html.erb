@@ -12,7 +12,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @artist.image %>
+  <%= image_tag @artist.image, height: '64', width: '64' %>
+</p>
+
+<p>
+  <strong>Albums:</strong>
+<%= link_to 'List', artist_albums_path(@artist) %> 
 </p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |

@@ -2,6 +2,20 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 
+
+# 5.times do |index|
+# 	Song.create(:name => "name" + index.to_s)
+# end
+# 	#Song.create(:name => "name #{index}")
+# 	#POST.create(:name => Faker::Name.name)
+
+
+
+
+
+
+
+
 		artist1 = Artist.create(
 		    :name => 'Lady Gaga',
 		    :description => 'Stefani Joanne Angelina Germanotta (born March 28, 1986), who performs under the stage name Lady Gaga, is a singer, songwriter and musician from New York City, New York, United States. Before Gaga adopted her stage name she was in a band called Stefani Germanotta Band. She released her first EP, “Red and Blue”, in early 2006. The following year, music producer Rob Fusari dubbed her Lady Gaga, inspired by the Queen song “Radio Gaga”. After this she recorded her first two songs as Lady Gaga (Fever and Wonderful) on Def Jam records, but was later let go.',

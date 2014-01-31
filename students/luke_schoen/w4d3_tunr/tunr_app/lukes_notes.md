@@ -271,5 +271,64 @@ Song.count
 http://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/collection_select
 
 
+######################
+# PAGES CONTROLLER
+######################
+
+rails g controller PagesController about_us contact_us privacy terms_and_cond
+
+rails destroy controller PagesController about_us contact_us privacy terms_and_cond
+
+rails g controller Pages about_us contact_us privacy terms_and_cond
+
+
+TunrApp::Application.routes.draw do
+
+# default structure shown below is generated but requires long routes:
+
+  # get "pages/about_us"
+  # get "pages/contact_us"
+  # get "pages/privacy"
+  # get "pages/terms_and_cond"
+ 
+
+# chagne to short routes achieved as follows:
+
+get "about_us" => "pages#about_us"
+get "contact_us" => "pages#contact_us"
+get "privacy" => "pages#privacy"
+get "terms_and_cond" => "pages#terms_and_cond"
+
+
+
+rake routes
+
+<!-- shows short routes, i.e.
+
+          Prefix Verb   URI Pattern                              Controller#Action
+        about_us GET    /about_us(.:format)                      pages#about_us
+      contact_us GET    /contact_us(.:format)                    pages#contact_us
+         privacy GET    /privacy(.:format)                       pages#privacy
+  terms_and_cond GET    /terms_and_cond(.:format)                pages#terms_and_cond -->
+
+<!-- update footer file -->
+
+<%= link_to 'home', root_path %> |
+<%= link_to 'about us', about_us_path %> |
+<%= link_to 'contact us', contact_us_path %> 
+<%= link_to 'privacy statement', privacy_path %> 
+<%= link_to 'terms and conditions', terms_and_cond_path %> 
+
+
+
+
+
+
+
+
+
+
+
+
 
 

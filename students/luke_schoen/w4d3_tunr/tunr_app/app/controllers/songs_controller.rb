@@ -1,10 +1,26 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  #before_action :set_artist, only: [:index, :new, :create] # all collection actions
+  #before_action :set_album, only: [:index, :new, :create]
 
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+
+  	if params[:album_id].nil? && params[:artist_id].nil?
+  		@songs = Song.all
+    else
+    	if params[:artist_id]
+    		@songs = Song.where("artist_id=#{params[:artist_id]}")
+    	elsif params[:album_id]
+    		@songs = Song.where("album_id=#{params[:album_id]}")
+    	end
+
+    	if @songs.size <= 0
+  			flash.now[:notice] = "No songs exist yet for this album!"
+    	end
+    end
+
   end
 
   # GET /songs/1
@@ -14,7 +30,8 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   def new
-    @song = Song.new
+    #@song = Song.new
+    @song = @artist.songs.new
   end
 
   # GET /songs/1/edit
@@ -24,7 +41,8 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(song_params)
+    #@song = Song.new(song_params)
+    @song = @artist.songs.new(song_params)
 
     respond_to do |format|
       if @song.save
@@ -65,6 +83,15 @@ class SongsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_song
       @song = Song.find(params[:id])
+    end
+
+    def set_artist
+      #@artist = Artist.find(params[:artist_id])
+      @artist = @song.album
+    end
+
+    def set_album
+      @album = Album.find(params[:album_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
