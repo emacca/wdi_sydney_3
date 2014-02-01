@@ -32,6 +32,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# LUKE ADDED
+
+gem 'will_paginate', '~> 3.0.0', require: %w[
+  will_paginate
+  will_paginate/data_mapper
+]
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

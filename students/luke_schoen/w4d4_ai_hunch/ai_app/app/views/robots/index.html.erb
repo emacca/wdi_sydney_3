@@ -14,15 +14,17 @@
 
   <tbody>
     <% @robots.each do |robot| %>
-      <tr>
+      <tr style="background-color:<%= cycle("#44eeff", "#44eedd", name: "colors") -%>">
         <td><%= robot.name %></td>
         <td><%= robot.description %></td>
+<!-- <td><%#= truncate(robot.description, length:30) { link_to "Continue", "#" } %></td> -->
         <td><%= image_tag robot.image, title: robot.name, width: 100, height: 100 %></td>
         <td><%= link_to 'Show', robot %></td>
         <td><%= link_to 'Edit', edit_robot_path(robot) %></td>
         <td><%= link_to 'Destroy', robot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% reset_cycle("colors") %>
   </tbody>
 </table>
 

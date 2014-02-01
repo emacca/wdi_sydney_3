@@ -1,3 +1,7 @@
+<%# require 'will_paginate' %>
+<%# require 'will_paginate/data_mapper' %>
+
+
 <h1>Listing senses</h1>
 
 <table>
@@ -18,24 +22,47 @@
   <tbody>
     <% @senses.each do |sense| %>
       <tr>
-        <td><%= sense.name %></td>
-        <td><%= sense.description %></td>
-        <td><%= sense.image %></td>
+        <td style="text-align:center"><%= sense.name %></td>
+        <td style="text-align:center"><%= sense.description %></td>
+<!-- IMAGE -->
+        <td style="text-align:center">
+        	<%#= sense.image %>
 
-		<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
-			<% x = Robot.find_by_id(sense.robot_id) %>
-			<% if !x.blank? %>
-				<td><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
-			<% elsif x.blank? %>
-				<td><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
+
+		    <% if !sense.robot_id.nil? %>
+		  	  <% robot = Robot.find_by_id(sense.robot_id) %>
+		  	  <% if !robot.nil? %>
+		  	  	<%= image_tag robot.image, title: robot.name, width: 50, height: 50 %>
+		  	  <% end %>
+		    <% end %>
+
+		    <!-- if !sense.robot_id.nil? 
+			sense.robotimages[
+
+			each { |n| hash[n] = read_attribute_for_serialization(n) }
+		    end 
+			http://apidock.com/rails/ActiveModel/Serialization/serializable_hash
+			-->
+
+        </td>
+
+<!-- ASSIGNED TO ROBOT ID -->
+			<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
+				<% x = Robot.find_by_id(sense.robot_id) %>
+				<% if !x.blank? %>
+					<td style="text-align:center"><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
+				<% elsif x.blank? %>
+					<td style="text-align:center"><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
+				<% end %>
 			<% end %>
-		<% end %>
 
+<!-- SHOW EDIT DELETE -->
         <td><%= link_to 'Show', sense %></td>
         <td><%= link_to 'Edit', edit_sense_path(sense) %></td>
         <td><%= link_to 'Destroy', sense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%#= will_paginate @senses %>
   </tbody>
 </table>
 

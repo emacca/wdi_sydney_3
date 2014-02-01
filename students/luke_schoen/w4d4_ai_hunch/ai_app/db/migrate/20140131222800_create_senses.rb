@@ -4,6 +4,7 @@ class CreateSenses < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :image
+      t.text :robotimages
       t.references :robot, index: true
       
       t.timestamps

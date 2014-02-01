@@ -120,6 +120,6 @@ class SensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sense_params
-      params.require(:sense).permit(:name, :description, :image, :robot_id)
+      params.require(:sense).permit(:name, :description, :image, :robotimages, :robot_id)
     end
 end

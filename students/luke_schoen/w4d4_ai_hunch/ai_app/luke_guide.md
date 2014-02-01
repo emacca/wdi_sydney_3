@@ -312,6 +312,53 @@ tunr_app_development=# select * from playlists_songs;
 (0 rows)
 
 
+#######
+# HASH 
+#######
+
+
+<!-- class CreateSenses < ActiveRecord::Migration -->
+
+      t.text :robotimages
+
+<!-- use text instead of string type in migration file so Rails will properly convert it into YAML for you (and perform proper serialization -->
+
+<!-- class Sense < ActiveRecord::Base -->
+ serialize :robotimages, Hash
+
+##########
+#PAGEINATE
+
+# in senses index file
+<%# require 'will_paginate' %>
+<%# require 'will_paginate/data_mapper' %>
+
+    <%= will_paginate @senses %>
+
+# in GEMFILE
+
+gem 'will_paginate', '~> 3.0.0', require: %w[
+  will_paginate
+  will_paginate/data_mapper
+]
+
+DOES NOT WORK!!!!!!
+
+HASH IN COLUMN!!!
+
+ai_app_development=# select * from senses;
+ id | name  | description | image |              robotimages               | robot_id |         created_at         |         updated_at         
+----+-------+-------------+-------+----------------------------------------+----------+----------------------------+----------------------------
+  2 | bb    | bb          |       | --- {}                                +|        1 | 2014-02-01 12:48:40.084391 | 2014-02-01 12:48:40.084391
+    |       |             |       |                                        |          |                            | 
+  1 | aa    | aa          |       | --- {}                                +|        2 | 2014-02-01 12:48:22.984094 | 2014-02-01 12:48:49.197554
+    |       |             |       |                                        |          |                            | 
+  3 | test1 |             |       | {"1"=>"http://robohash.org/XNZ387388"} |        1 | 2014-02-01 13:28:59.117286 | 2014-02-01 13:28:59.117286
+  4 | cc    | a           |       | {"1"=>"http://robohash.org/XNZ387388"} |        1 | 2014-02-01 13:30:04.141144 | 2014-02-01 13:30:04.141144
+  5 | ddd   | dd          |       | {"1"=>"http://robohash.org/XNZ387388"} |        1 | 2014-02-01 13:30:12.807943 | 2014-02-01 13:30:12.807943
+  6 | ffff  | f           |       | {"4"=>"http://robohash.org/QBO543898"} |        4 | 2014-02-01 13:30:46.316914 | 2014-02-01 13:30:46.316914
+  7 | test1 |             |       | {"1"=>"http://robohash.org/XNZ387388"} |        1 | 2014-02-01 13:36:34.365637 | 2014-02-01 13:36:34.365637
+
 
 
 

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140131222829) do
     t.string   "name"
     t.text     "description"
     t.string   "image"
+    t.text     "robotimages"
     t.integer  "robot_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -14,6 +14,13 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+
+<!-- ATTEMPT TO MAKE DROP DOWN SELECT OF DIFFERENT SENSE TYPES -->
+	<%# my_types = Hash.new %>
+	<%# my_types = { :a => 1, :b => 2 } %>
+    <%#= f.label :robot_id %><br>
+    <%#= f.collection_select :robot_id, my_types, :id, :name, {prompt: true, :include_blank=>true} %>
+
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -24,7 +31,15 @@
     <%= f.text_field :image %>
   </div>
 
+  <div class="field">
+    <%= f.label :robotimages %><br>
 
+    <% r = Robot.find_by_id(@sense.robot_id) %>
+	<%=	@sense.robotimages = {"#{params[:robot_id]}"=>r.image} %>
+	<%= image_tag r.image, title: r.name, width: 50, height: 50 %>
+
+	<%= f.text_field :robotimages %>
+	</div>
 
   <div class="field">
   	
