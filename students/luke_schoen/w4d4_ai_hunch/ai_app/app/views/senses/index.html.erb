@@ -6,6 +6,9 @@
       <th>Name</th>
       <th>Description</th>
       <th>Image</th>
+      <% if params[:robot_id].nil? %>
+	  <th>Assigned to Robot</th>
+	  <% end %>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +21,16 @@
         <td><%= sense.name %></td>
         <td><%= sense.description %></td>
         <td><%= sense.image %></td>
+
+		<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
+			<% x = Robot.find_by_id(sense.robot_id) %>
+			<% if !x.blank? %>
+				<td><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
+			<% elsif x.blank? %>
+				<td><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
+			<% end %>
+		<% end %>
+
         <td><%= link_to 'Show', sense %></td>
         <td><%= link_to 'Edit', edit_sense_path(sense) %></td>
         <td><%= link_to 'Destroy', sense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

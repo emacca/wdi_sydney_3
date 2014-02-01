@@ -16,10 +16,17 @@
 </p>
 
 <p>
+  <strong>Robot Image:</strong>
+  <% @sense.robot.image.to_s %>
+  <%#= image_tag image_url(sense.robot.image.to_s), title: robot.name, width: 100, height: 100 %>
+</p>
+
+<p>
   <strong>Robot ID:</strong>
   <%= @sense.robot_id %>
 </p>
 
 <%= link_to 'Edit', edit_sense_path(@sense) %> |
-<%= link_to 'Back', senses_path %>
+<%= link_to 'Back', robot_senses_path(@sense.robot_id) %> |
+<%= link_to 'Admin', senses_path %>
 

@@ -1,5 +1,5 @@
 class Sense < ActiveRecord::Base
-	validates :name, presence: true 
+	validates :name, :robot_id, presence: true 
 	
 	has_many :ideas
 	belongs_to :robot
