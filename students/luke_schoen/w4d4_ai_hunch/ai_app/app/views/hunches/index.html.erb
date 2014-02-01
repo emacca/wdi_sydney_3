@@ -1,0 +1,29 @@
+<h1>Listing hunches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hunches.each do |hunch| %>
+      <tr>
+        <td><%= hunch.name %></td>
+        <td><%= hunch.description %></td>
+        <td><%= link_to 'Show', hunch %></td>
+        <td><%= link_to 'Edit', edit_hunch_path(hunch) %></td>
+        <td><%= link_to 'Destroy', hunch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hunch', new_hunch_path %>

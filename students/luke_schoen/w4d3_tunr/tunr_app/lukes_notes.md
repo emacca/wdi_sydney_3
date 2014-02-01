@@ -319,13 +319,49 @@ rake routes
 <%= link_to 'privacy statement', privacy_path %> 
 <%= link_to 'terms and conditions', terms_and_cond_path %> 
 
+##########
+PLAYLIST
+##########
+
+rails generate scaffold Playlist name:string
 
 
+http://guides.rubyonrails.org/migrations.html#creating-a-join-table
+
+rails g migration CreateJoinTablePlaylistSong playlist song
 
 
+class Playlist < ActiveRecord::Base
+	has_and_belongs_to_many :songs
+end
 
 
+class Song < ActiveRecord::Base
+    validates :name, presence: true 
+    # error shown in front end when entering in form if not entered
+	
+	belongs_to :artist
+	belongs_to :album
 
+	has_and_belongs_to_many :playlists
+end
+
+
+rake db:migrate
+
+
+psql tunr_app_development
+
+
+tunr_app_development=# select * from playlists;
+ id | name | created_at | updated_at 
+----+------+------------+------------
+(0 rows)
+
+tunr_app_development=# select * from playlists_songs;
+ playlist_id | song_id 
+-------------+---------
+(0 rows)
 
 
 

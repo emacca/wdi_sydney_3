@@ -1,5 +1,7 @@
 TunrApp::Application.routes.draw do
 
+  resources :playlists
+
 # default structure shown below is generated but requires long routes:
 
   # get "pages/about_us"

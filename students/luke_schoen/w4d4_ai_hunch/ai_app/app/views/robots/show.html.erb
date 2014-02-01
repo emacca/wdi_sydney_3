@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @robot.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @robot.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+
+<%= image_tag image_url(@robot.image), style: 'border: 2px solid #44ff55', title: ':name', width: 200, height: 200 %>
+</p>
+
+<%= link_to 'Edit', edit_robot_path(@robot) %> |
+<%= link_to 'Back', robots_path %>

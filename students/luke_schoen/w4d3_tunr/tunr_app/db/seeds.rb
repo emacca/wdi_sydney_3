@@ -10,13 +10,7 @@
 # 	#POST.create(:name => Faker::Name.name)
 
 
-
-
-
-
-
-
-		artist1 = Artist.create(
+		robot1 = Robot.create(
 		    :name => 'Lady Gaga',
 		    :description => 'Stefani Joanne Angelina Germanotta (born March 28, 1986), who performs under the stage name Lady Gaga, is a singer, songwriter and musician from New York City, New York, United States. Before Gaga adopted her stage name she was in a band called Stefani Germanotta Band. She released her first EP, “Red and Blue”, in early 2006. The following year, music producer Rob Fusari dubbed her Lady Gaga, inspired by the Queen song “Radio Gaga”. After this she recorded her first two songs as Lady Gaga (Fever and Wonderful) on Def Jam records, but was later let go.',
 			:image => 'http://userserve-ak.last.fm/serve/500/62781345/Lady+Gaga+Gaga.png'

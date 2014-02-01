@@ -1,0 +1,31 @@
+<h1>Listing senses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @senses.each do |sense| %>
+      <tr>
+        <td><%= sense.name %></td>
+        <td><%= sense.description %></td>
+        <td><%= sense.image %></td>
+        <td><%= link_to 'Show', sense %></td>
+        <td><%= link_to 'Edit', edit_sense_path(sense) %></td>
+        <td><%= link_to 'Destroy', sense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sense', new_sense_path %>

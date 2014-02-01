@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
 
   # GET /albums
   # GET /albums.json
+  
   def index
   	
   	@artist = Artist.find_by_id(params[:artist_id]) # gathering the id after artist in the browser. if was after album would just use id
