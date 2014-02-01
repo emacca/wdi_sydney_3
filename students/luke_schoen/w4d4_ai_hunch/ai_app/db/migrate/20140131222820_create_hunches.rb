@@ -3,7 +3,7 @@ class CreateHunches < ActiveRecord::Migration
     create_table :hunches do |t|
       t.string :name
       t.text :description
-      t.references :ideas, index: true
+      t.references :idea, index: true
       
       t.timestamps
     end

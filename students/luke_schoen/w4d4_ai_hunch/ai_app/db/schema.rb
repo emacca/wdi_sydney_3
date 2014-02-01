@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20140131222829) do
   create_table "hunches", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "ideas_id"
+    t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "hunches", ["ideas_id"], name: "index_hunches_on_ideas_id", using: :btree
+  add_index "hunches", ["idea_id"], name: "index_hunches_on_idea_id", using: :btree
 
   create_table "hunches_ideas", id: false, force: true do |t|
     t.integer "idea_id",  null: false
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 20140131222829) do
   create_table "ideas", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "robots_id"
-    t.integer  "senses_id"
+    t.integer  "robot_id"
+    t.integer  "sense_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ideas", ["robots_id"], name: "index_ideas_on_robots_id", using: :btree
-  add_index "ideas", ["senses_id"], name: "index_ideas_on_senses_id", using: :btree
+  add_index "ideas", ["robot_id"], name: "index_ideas_on_robot_id", using: :btree
+  add_index "ideas", ["sense_id"], name: "index_ideas_on_sense_id", using: :btree
 
   create_table "robots", force: true do |t|
     t.string   "name"
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20140131222829) do
     t.string   "name"
     t.text     "description"
     t.string   "image"
-    t.integer  "robots_id"
+    t.integer  "robot_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "senses", ["robots_id"], name: "index_senses_on_robots_id", using: :btree
+  add_index "senses", ["robot_id"], name: "index_senses_on_robot_id", using: :btree
 
 end

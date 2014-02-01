@@ -3,8 +3,8 @@ class CreateIdeas < ActiveRecord::Migration
     create_table :ideas do |t|
       t.string :name
       t.text :description
-      t.references :robots, index: true
-      t.references :senses, index: true
+      t.references :robot, index: true
+      t.references :sense, index: true
       
       t.timestamps
     end

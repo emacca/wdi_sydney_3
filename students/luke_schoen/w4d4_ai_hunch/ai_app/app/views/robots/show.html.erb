@@ -16,5 +16,14 @@
 <%= image_tag image_url(@robot.image), style: 'border: 2px solid #44ff55', title: ':name', width: 200, height: 200 %>
 </p>
 
+<p>
+  <strong>Senses:</strong>
+<%= link_to 'List', robot_senses_path(@robot.id) %> 
+</p>
+
 <%= link_to 'Edit', edit_robot_path(@robot) %> |
 <%= link_to 'Back', robots_path %>
+
+
+
+

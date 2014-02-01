@@ -28,4 +28,7 @@
 
 <br>
 
-<%= link_to 'New Sense', new_sense_path %>
+<% if !params[:robot_id].nil? %>
+<%= link_to 'New Sense', new_robot_sense_path %>
+<% end %>
+

@@ -1,6 +1,7 @@
 #require './lib/classes/robotrandom.rb'
 
 class RobotsController < ApplicationController
+	
   before_action :set_robot, only: [:show, :edit, :update, :destroy]
 
   # GET /robots

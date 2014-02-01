@@ -4,7 +4,35 @@ class SensesController < ApplicationController
   # GET /senses
   # GET /senses.json
   def index
-    @senses = Sense.all
+    #@senses = Sense.all
+
+	# @robot = Robot.find_by_id(params[:robot_id]) # gathering the id after artist in the browser. if was after album would just use id
+ #  	if !@robot
+ #  		raise "no robot found!"
+ #  	else
+ #  		if @robot.senses.empty?
+	#     	@senses = @robot.senses
+	#     	flash.now[:notice] = "No senses exist yet for this robot!"
+	#     else
+	#     	@senses = @robot.senses
+	#     end
+ #  	end
+
+	# senses GET    /senses(.:format)
+   	if params[:id].nil? && params[:robot_id].nil?
+  		@senses = Sense.all
+    else
+    	if params[:robot_id]
+    		@senses = Sense.where("robot_id=#{params[:robot_id]}")
+    	else
+    		raise "check your routes!"
+    	end
+
+    	if @senses.size <= 0
+  			flash.now[:notice] = "No senses exist yet for this album!"
+    	end
+    end
+
   end
 
   # GET /senses/1
@@ -14,7 +42,26 @@ class SensesController < ApplicationController
 
   # GET /senses/new
   def new
-    @sense = Sense.new
+  	#@robot = Robot.find_by_id(params[:robot_id]) 
+  	#@sense = @robot.senses
+  	#@robot = Robot.find_by_id(params[:robot_id])
+    #@sense = Sense.new(params[:robot_id])
+    #@sense = Sense.new(params[:robot_id]) 
+
+    if params[:id].nil? && params[:robot_id].nil?
+    	#
+	else
+    	if params[:robot_id]
+    		@sense = Sense.where("robot_id=#{params[:robot_id]}")
+    		@sense = @sense.new
+
+			@sense.robot_id = params[:robot_id]
+
+    	else
+    		raise "check your routes!!"
+    	end
+    end
+
   end
 
   # GET /senses/1/edit
@@ -64,11 +111,15 @@ class SensesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sense
+      #@sense = Sense.find(params[:id])
+
       @sense = Sense.find(params[:id])
+      @robot = @sense.robot
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sense_params
-      params.require(:sense).permit(:name, :description, :image)
+      params.require(:sense).permit(:name, :description, :image, :robot_id)
     end
 end

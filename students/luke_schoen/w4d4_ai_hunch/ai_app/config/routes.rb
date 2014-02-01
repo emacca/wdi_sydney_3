@@ -14,7 +14,7 @@ get "contribute" => "pages#contribute"
   
   root :to => 'robots#index' 
 
-  # resources :senses
+  resources :senses
   # resources :ideas
   # resources :hunches
 
