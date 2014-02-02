@@ -12,11 +12,11 @@ get "contribute" => "pages#contribute"
 		end
   end
   
-  root :to => 'robots#index' 
+  root :to => 'hunches#index' 
 
   resources :senses
-  # resources :ideas
-  # resources :hunches
+  resources :ideas
+  resources :hunches
 
 end
 

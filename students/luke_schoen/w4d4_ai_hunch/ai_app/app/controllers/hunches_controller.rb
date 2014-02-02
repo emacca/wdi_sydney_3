@@ -1,4 +1,5 @@
 class HunchesController < ApplicationController
+  layout 'user'
   before_action :set_hunch, only: [:show, :edit, :update, :destroy]
 
   # GET /hunches

@@ -35,7 +35,7 @@
     <%= f.label :robotimages %><br>
 
     <% r = Robot.find_by_id(@sense.robot_id) %>
-	<%=	@sense.robotimages = {"#{params[:robot_id]}"=>r.image} %>
+	<%=	@sense.robotimages = {"#{params[:robot_id]}"=>r.image} %><br>
 	<%= image_tag r.image, title: r.name, width: 50, height: 50 %>
 
 	<%= f.text_field :robotimages %>
@@ -44,7 +44,8 @@
   <div class="field">
   	
     <%= f.label :robot_id %><br>
-    <%= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true, :include_blank=>true} %>
+    <%= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true} %>
+    <%#= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true, :include_blank=>true} %>
     <%#= f.text_field :robot_id %>
   </div>
 

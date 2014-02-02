@@ -2,18 +2,22 @@
 
 <div style="border:4px solid purple; display: inline-block; clear: left;">
 	<strong>Menu</strong>
-	<%= link_to 'Robots', robots_path %> |
-	<%= link_to 'Senses', senses_path %> |
-	<%= link_to 'Ideas', "#" %> |
-	<%= link_to 'Hunchtest', "#" %>
 
+	<% if controller.controller_name == "hunches" %>
+		<%= link_to 'Admin', robots_path %>
+	<% else %>
+		<%= link_to 'Robots', robots_path %> |
+		<%= link_to 'Senses', senses_path %> |
+		<%= link_to 'Ideas', ideas_path %> |
+		<%= link_to 'Hunchtest', hunches_path %>
+	<% end %>
 </div>
 
 
-<div style="border:4px solid purple; display: inline-block; float:right">
-		<p><strong>Top Artists:</strong></p>
+<!-- <div style="border:4px solid purple; display: inline-block; float:right">
+		<p><strong>Top Ideas:</strong></p>
 		Test
 
-</div>
+</div> -->
 
 

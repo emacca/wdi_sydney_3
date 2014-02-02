@@ -1,18 +1,25 @@
 <%# require 'will_paginate' %>
-<%# require 'will_paginate/data_mapper' %>
-
 
 <h1>Listing senses</h1>
 
-<table>
+<% if !params[:robot_id].nil? %>
+<p style="border:4px solid purple; display: inline-block; clear: left;">
+<%= link_to 'New Sense', new_robot_sense_path %> |
+<%= link_to 'New Idea', new_robot_idea_path %> |
+<%= link_to 'Return to Robot', "#" %> 
+<br></p>
+<% end %>
+
+
+<table style="border: 1px solid black;">
   <thead>
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Image</th>
       <% if params[:robot_id].nil? %>
 	  <th>Assigned to Robot</th>
 	  <% end %>
+	  <th>Image</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,6 +31,17 @@
       <tr>
         <td style="text-align:center"><%= sense.name %></td>
         <td style="text-align:center"><%= sense.description %></td>
+
+<!-- ASSIGNED TO ROBOT ID -->
+			<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
+				<% x = Robot.find_by_id(sense.robot_id) %>
+				<% if !x.blank? %>
+					<td style="text-align:center"><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
+				<% elsif x.blank? %>
+					<td style="text-align:center"><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
+				<% end %>
+			<% end %>
+
 <!-- IMAGE -->
         <td style="text-align:center">
         	<%#= sense.image %>
@@ -46,16 +64,6 @@
 
         </td>
 
-<!-- ASSIGNED TO ROBOT ID -->
-			<% if params[:robot_id].nil? && !sense.robot_id.nil? %>
-				<% x = Robot.find_by_id(sense.robot_id) %>
-				<% if !x.blank? %>
-					<td style="text-align:center"><%= link_to sense.robot_id, robot_path(sense.robot_id) %></td>
-				<% elsif x.blank? %>
-					<td style="text-align:center"><%= link_to (sense.robot_id.to_s + ", but deleted!, reassign?"), edit_sense_path(sense) %></td>
-				<% end %>
-			<% end %>
-
 <!-- SHOW EDIT DELETE -->
         <td><%= link_to 'Show', sense %></td>
         <td><%= link_to 'Edit', edit_sense_path(sense) %></td>
@@ -66,9 +74,4 @@
   </tbody>
 </table>
 
-<br>
-
-<% if !params[:robot_id].nil? %>
-<%= link_to 'New Sense', new_robot_sense_path %>
-<% end %>
 

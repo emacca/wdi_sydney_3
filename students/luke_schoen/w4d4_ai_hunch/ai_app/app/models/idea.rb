@@ -1,5 +1,5 @@
 class Idea < ActiveRecord::Base
-	validates :name, :sense_id, presence: true 
+	validates :name, :robot_id, presence: true 
 	
 	belongs_to :robot
 	belongs_to :sense

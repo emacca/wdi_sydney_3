@@ -21,6 +21,11 @@
 <%= link_to 'List', robot_senses_path(@robot.id) %> 
 </p>
 
+<p>
+  <strong>Ideas:</strong>
+<%= link_to 'List', robot_ideas_path(@robot.id) %> 
+</p>
+
 <%= link_to 'Edit', edit_robot_path(@robot) %> |
 <%= link_to 'Back', robots_path %>
 

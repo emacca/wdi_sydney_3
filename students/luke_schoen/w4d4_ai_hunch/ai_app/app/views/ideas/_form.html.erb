@@ -1,3 +1,6 @@
+
+<%#= @idea.inspect %>
+
 <%= form_for(@idea) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
@@ -19,6 +22,23 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
+  <div class="field">
+  	
+    <%= f.label :robot_id %><br>
+    <%= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true} %>
+    <%#= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true, :include_blank=>true} %>
+    <%#= f.text_field :robot_id %>
+  </div>
+
+    <div class="field">
+  	
+    <%= f.label :sense_id %><br>
+    <%= f.collection_select :sense_id, Sense.all, :id, :name, {prompt: true} %>
+    <%#= f.collection_select :robot_id, Robot.all, :id, :name, {prompt: true, :include_blank=>true} %>
+    <%#= f.text_field :robot_id %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,7 +1,8 @@
 #require './lib/classes/robotrandom.rb'
 
 class RobotsController < ApplicationController
-	
+  http_basic_authenticate_with name: "username", password: "password"
+  #, except: :index
   before_action :set_robot, only: [:show, :edit, :update, :destroy]
 
   # GET /robots

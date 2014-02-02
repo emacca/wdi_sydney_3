@@ -1,4 +1,5 @@
 class SensesController < ApplicationController
+  http_basic_authenticate_with name: "username", password: "password"#, except: :index
   before_action :set_sense, only: [:show, :edit, :update, :destroy]
 
   # GET /senses

@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  http_basic_authenticate_with name: "username", password: "password"#, except: :index
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   # GET /ideas
@@ -14,7 +15,22 @@ class IdeasController < ApplicationController
 
   # GET /ideas/new
   def new
-    @idea = Idea.new
+    #@idea = Idea.new
+
+    if params[:id].nil? && params[:robot_id].nil?
+    	#
+	else
+    	if params[:robot_id]
+    		@idea = Idea.where("robot_id=#{params[:robot_id]}")
+    		@idea = @idea.new
+
+			@idea.robot_id = params[:robot_id]
+
+    	else
+    		raise "check your routes!!"
+    	end
+    end
+
   end
 
   # GET /ideas/1/edit
@@ -69,6 +85,6 @@ class IdeasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def idea_params
-      params.require(:idea).permit(:name, :description)
+      params.require(:idea).permit(:name, :description, :robot_id)
     end
 end
