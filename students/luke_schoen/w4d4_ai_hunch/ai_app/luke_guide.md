@@ -373,5 +373,10 @@ gem 'bootstrap-sass', '~> 3.1.0'
 created @import "bootstrap";
 
 
+######
+# ARRAYS IN TABLES
+######
+
+http://blog.relatabase.com/rails-postgres-arrays
 
 

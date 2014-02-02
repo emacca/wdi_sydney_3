@@ -4,7 +4,8 @@
 	<strong>Menu</strong>
 
 	<% if controller.controller_name == "hunches" %>
-		<%= link_to 'Admin', robots_path %>
+		<%= link_to 'Review Ideas', "#" %> |
+		<%= link_to 'Admin Only', robots_path %>
 	<% else %>
 		<%= link_to 'Robots', robots_path %> |
 		<%= link_to 'Senses', senses_path %> |

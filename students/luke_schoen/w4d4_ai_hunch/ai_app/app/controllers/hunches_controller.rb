@@ -5,12 +5,16 @@ class HunchesController < ApplicationController
   # GET /hunches
   # GET /hunches.json
   def index
-    @hunches = Hunch.all
+    #@hunches = Hunch.all
+    @hunches = Idea.all
+    #@hunches = Idea.where(params[:search])
   end
 
   # GET /hunches/1
   # GET /hunches/1.json
   def show
+  	#@hunches = Ideas.where('idea_id IN (?)', params[:hunch])
+  	#@hunch = Idea.find(params[:id])
   end
 
   # GET /hunches/new
