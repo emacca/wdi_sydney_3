@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @destination.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @destination.description %>
+</p>
+<p>
+<% @attractions.each do |attraction| %>
+<%= link_to attraction.name, attraction %>
+<% end %>
+</p>
+<%= link_to 'all attractions', destination_attractions_path(@destination) %>
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>
+<%= link_to 'New Attraction', new_destination_attraction_path(@destination) %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @attraction.image, width: "200" %>
+</p>
+
+<p>
+  <% if @attraction.destination.present? %>
+  <strong>Destination:</strong>
+  <%= link_to @attraction.destination.name, destination_path(@destination)%>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
+<%= link_to 'Back', destination_attractions_path(@destination) %>
