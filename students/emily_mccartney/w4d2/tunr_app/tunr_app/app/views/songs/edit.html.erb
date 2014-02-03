@@ -1,0 +1,36 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+    <div class="field">
+    <%= f.label :youtube %><br>
+    <%= f.text_field :youtube %>
+  </div>
+  <div class="field">
+    <%= f.label :artist %><br>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :album %><br>
+    <%= f.collection_select :album_id, Album.all, :id, :title, :include_blank=>true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @song %> |
+<%= link_to 'Back', songs_path %>

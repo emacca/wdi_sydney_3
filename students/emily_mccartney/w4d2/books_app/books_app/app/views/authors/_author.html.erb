@@ -1,0 +1,8 @@
+<div>
+  Name: <%= author.name %>
+  Bio:  <%= author.bio %>
+  Image: <%= author.image %>
+  <%= link_to 'Show', author %>
+  <%= link_to 'Edit', edit_author_path(author) %>
+  <%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

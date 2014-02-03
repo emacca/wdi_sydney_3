@@ -1,0 +1,17 @@
+<div>
+  <strong>Title: </strong><%= song.title %>
+  <% if song.album.present? %>
+
+  <strong>Artist: </strong><%= song.artist.name %>
+  <% end %>
+  <% if song.album.present? %>
+
+  <strong>Album: </strong><%= song.album.title %>
+  <% end %>
+
+
+  <%= link_to 'Show', song %>
+  <%= link_to 'Edit', edit_song_path(song) %>
+  <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+</div>

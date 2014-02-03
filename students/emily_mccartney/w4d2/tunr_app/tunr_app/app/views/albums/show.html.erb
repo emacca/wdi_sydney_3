@@ -1,0 +1,11 @@
+<%= render partial: 'album_show' %>
+
+
+  <p><strong>Artist is <%= link_to @artist.name, artist_path(@artist) %></strong><p>
+
+
+  <% if @album.present?%>
+  <p><%= link_to 'view songs', album_songs_path(@album)%></p>
+  <% end %>
+
+  

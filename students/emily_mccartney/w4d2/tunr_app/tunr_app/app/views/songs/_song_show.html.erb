@@ -1,0 +1,14 @@
+<p><strong>Title:</strong>
+  <%= @song.title %></p>
+
+<p><strong>Artist:</strong>
+  <%= @song.artist.name %>
+  <%= @song.artist.bio %></p>
+
+<% if @song.album.present? %>
+<p><strong>Album:</strong>
+  <%= @song.album.title %></p>
+
+<p><%= @song.album.description %><p>
+<% end %>
+<p><strong>Youtube links:</strong> <%= link_to 'View Video', @song.youtube %></p>

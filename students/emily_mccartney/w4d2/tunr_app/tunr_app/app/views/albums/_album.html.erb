@@ -1,0 +1,12 @@
+<div>
+  <strong>Title: </strong><%= album.title %>
+  <strong>Description: </strong><%= album.description %>
+  <strong>Year: </strong><%= album.year %>
+  <% if album.artist.present? %>
+  <strong>Artist: </strong><%= album.artist.name %>
+   <% end %>
+  
+  <%= link_to 'Show', album %>
+  <%= link_to 'Edit', edit_album_path(album) %>
+  <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

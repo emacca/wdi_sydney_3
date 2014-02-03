@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BooksApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1>I AM A HEADING</h1>
+    <%= notice %>
+    <%= alert %>
+
+  </header>
+<%= yield %>
+
+  <footer>
+    <p>About us | Contact us | Privacy | Terms and Conditions</p>
+  </footer>
+
+</body>
+</html>

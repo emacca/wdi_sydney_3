@@ -1,0 +1,11 @@
+<!-- <p id="notice"><%#= notice %></p>
+ -->
+<%= render partial: 'book_show' %>
+
+<h3>Author</h3>
+<p>
+  <strong>Author:</strong>
+  <%= link_to @book.author.name, author_path(@author)%>
+  <%= image_tag @book.author.image %>
+</p>
+

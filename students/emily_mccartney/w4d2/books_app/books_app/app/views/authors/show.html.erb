@@ -1,0 +1,8 @@
+<!-- <p id="notice"><%#= notice %></p>
+ -->
+<%= render partial: 'author_show' %>
+
+<h2>List of books</h2>
+<% @books.each do |book| %>
+  <p><%= link_to book.title, book_path(book) %></p>
+<% end %>

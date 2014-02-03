@@ -1,0 +1,18 @@
+<%= render partial: 'artist_show' %>
+
+<h2>Albums</h2>
+  <% @albums.each do |album| %>
+  <p><%= link_to album.title, album %></p>
+  <% end %>
+  <p><%= link_to 'all albums', artist_albums_path(@artist) %></p>
+<strong><%= link_to 'new album', new_artist_album_path(@artist) %></strong>
+
+<h2>Songs</h2>
+ 
+<% @songs.each do |song| %>
+<p><%= link_to song.title, song %></p>
+<% end %>
+
+
+<p><%= link_to 'all songs', artist_songs_path(@artist) %></p>
+<strong><%= link_to 'new song', new_artist_song_path(@artist) %></strong>
