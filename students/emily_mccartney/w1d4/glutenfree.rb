@@ -58,8 +58,8 @@ end
 # loop do |food|
 # puts "What do you want to eat? (pizza, pan_seared_scallops or water)"
 # food = gets.chomp.downcase
-# # puts "what is your allergy? (cheese, gluten, tomatoes, scallops, lemons, pasts or oliveoil)"
-# # allergies = gets.chomp.downcase
+# puts "what is your allergy? (cheese, gluten, tomatoes, scallops, lemons, pasts or oliveoil)"
+# allergies = gets.chomp.downcase
 
 # break if food == "q"
 # puts food
