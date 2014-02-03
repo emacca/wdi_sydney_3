@@ -1,0 +1,10 @@
+<div id="history">
+  <ul>
+  <% @movie_history.each do |title, movie| %>
+    <li>
+      <a href="movie/<%= movie %>"><%= movie %></a>
+      <img src="<%= movie['Poster'] %>" alt="">
+    </li>
+  <% end %>
+  </ul>
+</div>
