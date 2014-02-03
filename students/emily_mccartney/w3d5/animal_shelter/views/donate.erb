@@ -1,0 +1,18 @@
+<form action="/shelters/<%= @shelter.id %>/animals/donate" method="post">
+      <label for="name">Name</label></br>
+      <input type="text" name="name" value="<%= @new_animal.name %>">
+
+      <label for="age">Age</label></br>
+      <input type="text" name="age" value="<%= @new_animal.age %>">
+
+      <label for="gender">Gender</label></br>
+      <input type="text" name="gender" value="<%= @new_animal.gender %>">
+      
+      <label for="species">Species</label></br>
+      <input type="text" name="species" value="<%= @new_animal.species %>">
+      
+      <label for="breed">Breed</label></br>
+      <input type="text" name="breed" value="<%= @new_animal.breed %>">
+
+     <button>Donate Pet</button><br/>
+</form>

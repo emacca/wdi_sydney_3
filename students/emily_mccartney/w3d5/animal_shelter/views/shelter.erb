@@ -1,0 +1,22 @@
+<a href="/shelters/<%= @shelter.id %>?sort=name">Sort By Name</a>
+<a href="/shelters/<%= @shelter.id %>?sort=species">Sort By Species</a>
+<a href="/shelters/<%= @shelter.id %>?sort=breed">Sort By Breed</a>
+<h2>Shelter Information</h2>
+<p>Name: <%= @shelter.name %></p>
+<p>Description: <%= @shelter.description %></p>
+ 
+
+<h2>Animals</h2>
+<% @animals.each do |animal| %>
+  <a href="/shelters/<%= @shelter.id %>/animals/<%= animal.id%>"><%= animal.name %></a>
+  Time Created: <%= animal.date_time %> 
+
+  <form action="/shelters/<%= @shelter.id %>/animals/<%= animal.id %>" method="post">
+          <input type="hidden" name="_method" value="delete"/>
+          <button>DELETE</button>
+        </form>
+  <% end %>
+
+<h2>Donate Pet</h2>
+<a href="/shelters/<%= @shelter.id %>/animals">Donate</a>
+
