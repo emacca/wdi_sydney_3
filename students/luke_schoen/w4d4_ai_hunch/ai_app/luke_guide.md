@@ -380,3 +380,19 @@ created @import "bootstrap";
 http://blog.relatabase.com/rails-postgres-arrays
 
 
+
+
+#####
+# GOOGLE API
+#####
+
+http://stackoverflow.com/questions/7805711/javascript-json-google-trends-api
+
+
+####
+# RAILS CONSOLE TO TEST CODE AND CALL FUNCTIONS ETC
+####
+
+xxxx.to_json ---> for debugging and displaying values in browser
+
+removed turbolinks performance enhancement!

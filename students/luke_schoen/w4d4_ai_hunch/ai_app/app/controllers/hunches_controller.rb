@@ -6,8 +6,16 @@ class HunchesController < ApplicationController
   # GET /hunches.json
   def index
     #@hunches = Hunch.all
-    @hunches = Idea.all
-    #@hunches = Idea.where(params[:search])
+    #@hunches = Idea.all
+    #@hunches = Idea.search(params[:search]
+	
+	if params[:search].present?
+    	@ideas = Idea.where(:id => params[:search])    # search method is in the Idea model!!! (not the Hunch model)
+  	else
+  		@ideas = Idea.all
+    end
+
+
   end
 
   # GET /hunches/1

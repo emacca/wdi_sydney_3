@@ -8,6 +8,7 @@
 
 	<div class="sorting">
 		<p>Sort By: Selected | Unselected | All </p>
+
 	</div>
 	
 	<div style="display: inline-block;">
@@ -23,9 +24,9 @@
 		  </thead>
 
 		  <tbody>
+			  <%= form_tag '/', :method => 'get' do %>
 		  
-		  <% @ideas = Idea.all %>
-		  <% for idea in @ideas %>
+		  <% @ideas.each do |idea| %>
 		    
 		  <tr>
 
@@ -33,12 +34,9 @@
 	        <td><%= idea.name %></td> 
 	        <td><%= idea.description %></td> 
 	        <td style="text-align:center; vertical-align: top;">
-			  <%= form_tag hunches_path, :method => 'get' do %>
 		          <%= label_tag :search %>
-		          <%= check_box_tag ':search[]', idea.id, false %>
+		          <%= check_box_tag 'search[]', idea.id, false %>
 		          <%#= check_box(:accepted, 'false', selected:false) %>
-		          <%= image_submit_tag("button.png") %>
-			   <% end %> 
 	        </td>
 
 	      </tr>
@@ -46,6 +44,9 @@
 	          <%#= image_submit_tag("button.png") %>
 			<!-- , :name => nil, data: { confirm: "Are you sure?" } -->
 		  <% end %>
+				  <%= link_to 'Display All Ideas', '/', method: :get, data: { confirm: 'Are you sure?' } %>
+		          <%= image_submit_tag("button.png")  %>
+			   <% end %> 
 
 		  </tbody>
 		</table>
