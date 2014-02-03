@@ -1,0 +1,51 @@
+<div class="container clear">
+  <header>
+    <img src="/images/galogo.png"/>
+    <h1>Movies Search</h1>
+  </header>
+
+  <form class="form" action="/" method="get">
+    <input class="inputtext"type="text" name="movie" autofocus>
+    <button class="button">Check Movie</button>
+  </form>
+
+
+  <!-- USe unless as we are on the same page, and we dont know what method we are calling, so we dont know if we are calling the list of movies or the single movies. We need to check to see if they are nil and then choose the type when the user puts somethign in. -->
+  <% unless @movie_list.nil?  %>
+    <ul>
+      <!-- going into the hash which contains an array then access key(search) and each time it prints out a hash of each movie  the levels of the folders are { [search {movie, movie} ] } -->
+      <% @movie_list["Search"].each do |movie| %>
+        <li>
+          <!-- Taking value out of the hash named title. above i have assigned each key to be named movie to access it we go into it and the print out the title, give it an a href and display it.  -->
+          <a href="movies/<%= movie["Title"] %>"><%= movie["Title"]%></a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="moviedata clear">
+    <div class="movieimage clear">
+      <% unless @movie_data.nil? %>
+        <% unless @movie_data["Poster"].empty? %>
+          <img src= "<%= @movie_data["Poster" ] %>" />
+        <% end %>
+    </div>
+    <div class="movieinfo clear">
+      <ul>
+        <!-- in the movie hash that is called movie_data access the key and values which is already assigned in the api  -->
+        <% @movie_data.each do |key, value| %>
+          <li>
+            <!-- if there is a Poster not to display anything as the image is above being showed -->
+            <% if key == "Poster" %>
+              
+              <% else %>
+              <!-- Listing out the key and values in a list -->
+                <strong><%= key %> </strong><%= value %>
+              <% end %>
+          </li>  
+            <% end %>
+      </ul>   
+        <% end %>
+    </div>
+  </div>
+</div>

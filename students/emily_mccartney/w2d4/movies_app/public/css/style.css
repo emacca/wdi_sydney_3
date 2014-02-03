@@ -1,0 +1,74 @@
+.clear:after {
+ content:".";
+ display: block;
+ clear: both;
+ visibility: hidden;
+ line-height: 0;
+ height: 0;
+}
+header {
+ text-align: center;
+ border-bottom: 1px dashed #ccc;
+}
+header img {
+ width:400px;
+}
+.container {
+ width:700px;
+ margin:20px auto;
+ font-family: helvetica;
+ border-bottom: 1px dashed #ccc;
+}
+h1 {
+ font-family: helvetica;
+ font-weight:100;
+ text-transform: lowercase;
+}
+.form {
+ text-align: center;
+ margin:40px auto;
+ background-color: #99CCFF;
+ padding:17px;
+ width:400px;
+ border-radius: 10px;
+}
+.button {
+ background-color: rgba(255, 255, 255, 0.5);
+ padding: 10px;
+ width: 120px;
+ border-radius: 10px;
+ margin-top: 10px;
+ font-family: helvetica;
+ font-weight: 100;
+}
+.inputtext {
+ height: 37px;
+ width: 263px;
+}
+ul {
+ list-style-type: none;
+ padding: 40px;
+ text-align: left;
+ line-height: 23px;
+}
+ul li a {
+ text-decoration: none;
+ color:#666;
+ line-height: 2;
+}
+.moviedata {
+ border-top: 1px dashed #ccc;
+}
+.movieimage {
+ width:30%;
+ float:right;
+}
+.movieimage img {
+ padding-top: 50px;
+ width: 180px;
+ height: auto;
+}
+.movieinfo {
+ width:70%;
+ float:left;
+}
