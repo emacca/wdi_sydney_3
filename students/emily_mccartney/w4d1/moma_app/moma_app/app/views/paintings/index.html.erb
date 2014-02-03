@@ -1,0 +1,8 @@
+<h1>New</h1>
+<p><%= link_to 'New Painting', new_painting_path%></p>
+<h1>Painting List</h1>
+<% @paintings.each do |painting|%>
+  <p><%= link_to painting.title, painting %>
+  <%= painting.year %>
+  <%= painting.medium %></p>
+<% end %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= @background %>">
+<nav>
+  <%= link_to 'home', root_path %>
+  <%= link_to 'All', posts_path %>
+  <%= link_to 'New Post', new_post_path %>
+
+</nav>
+<%= yield %>
+
+</body>
+</html>

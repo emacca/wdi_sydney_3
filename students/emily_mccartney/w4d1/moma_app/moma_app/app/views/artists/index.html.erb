@@ -1,0 +1,8 @@
+<h1> Artist list</h1>
+<!--<a href="/artists/new"> New Artist</a> next is a shortcut it is the link name and then the route-->
+<%= link_to 'New Artist', new_artist_path %> <!-- paths are defined in the console. look at them, this is a specific artist path -->
+
+<% @artists.each do |artist|%>
+  <p><%= link_to artist.name, artist %></p>
+  <p><%= artist.period%></p>
+<% end %>

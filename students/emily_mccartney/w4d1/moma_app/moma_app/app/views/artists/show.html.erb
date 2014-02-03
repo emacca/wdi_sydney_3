@@ -1,0 +1,19 @@
+  <%= link_to 'Home', artists_path  %>
+  <p>Name: <%= @artist.name%></p>
+  <p>Period: <%= @artist.period%></p>
+  <p>Nationality: <%= @artist.nationality%></p>
+  <p>Date of Birth: <%= @artist.dob%></p>
+  <p>Image: <%= image_tag @artist.image, width: "200" %></p>
+
+  <%= link_to 'edit', edit_artist_path(@artist) %> <!-- Get the path and then pass the artist object to it so u can edit the specific one  -->
+  <%= link_to 'delete', @artist, :method => :delete, :confirm => 'do you want to delete?' %>
+
+  <h1>Paintings</h1>
+  <% @paintings.each do |painting|%>
+  <p><%= link_to painting.title, painting_path(painting)%></p>
+  <% end %>
+
+<!-- This will slip into the direct spot on the page, in layout in the yield. -->
+<%= content_for :footer do %>
+<h3> i am a footer only on the artist show pages</h3>
+<% end %>
