@@ -1,0 +1,224 @@
+.clear:after {
+ content:".";
+ display: block;
+ clear: both;
+ visibility: hidden;
+ line-height: 0;
+ height: 0;
+}
+nav {
+ margin: 10px auto;
+ width: 700px;
+ text-align: center;
+ text-transform: lowercase;
+ border-top: 1px dashed #ccc;
+ border-bottom: 1px dashed #ccc;
+ padding: 20px 0
+}
+nav a {
+ text-decoration: none;
+ padding:20px;
+ color:#666;
+}
+nav a:hover {
+ color:#cdc;
+}
+/*GENERAL*/
+ body {
+ font-family:helvetica;
+ font-weight: 100;
+}
+/*TYPOGRAPHY*/
+ h1 {
+ font-weight: 100;
+ font-family: times new roman;
+ text-align: center;
+ font-style: italic;
+ text-transform: lowercase;
+}
+h2 {
+ font-size: 50px;
+ color: #fff;
+ font-family:'Helvetica Neue', Helvetica, sans-serif;
+ font-weight: 100;
+ line-height: 2;
+ text-align: center;
+ text-transform: lowercase;
+}
+h2 a {
+ text-decoration: none;
+ color:#fff;
+}
+h2 a:hover {
+ color:#51B6E6;
+}
+h3 {
+ font-size:30px;
+}
+h4 {
+ font-size: 54px;
+ line-height: 70px;
+ text-transform: uppercase;
+ margin:30px 0;
+ text-align: center;
+}
+h5 {
+ font-size: 19px;
+ line-height: 30px;
+ color: #54C9AD;
+ text-align: center;
+ text-transform: uppercase;
+ padding:30px 0;
+ border-top: 1px solid;
+ border-bottom: 1px solid;
+}
+p {
+ line-height: 21px;
+ font-size: 13px;
+}
+h6 {
+ font-family:"PFDinTextCompProBold", Impact, Arial;
+ font-size: 54px;
+ margin: 0;
+ text-transform: uppercase;
+ line-height: 63px;
+}
+a {
+ text-decoration: none;
+ color:#51B6E6;
+}
+/*PAGES*/
+ #container {
+ width:700px;
+ margin:30px auto;
+ min-height: 400px;
+}
+header {
+ margin:0 auto;
+ width:700px;
+ text-align: center;
+}
+header img {
+ width:400px;
+}
+.box {
+ width:48%;
+ height:200px;
+ float:left;
+ border:1px solid #cdc;
+ margin: 1%;
+ display:inline-block;
+ box-sizing:border-box;
+}
+.about {
+ background-color: #cdc;
+}
+.contact {
+ background-color: #cdc;
+}
+.alberto {
+ background-color: #ccc;
+}
+.pranava {
+ background-color: #ccc;
+}
+.luke {
+ background-color: #ccc;
+}
+.emily {
+ background-color: #ccc;
+}
+.box:hover {
+ background-color: #cdc;
+}
+.about:hover, .contact:hover {
+ background-color: #ccc;
+}
+/*about page*/
+ .about_left {
+ width:48%;
+ float:left;
+}
+.about_right {
+ width:48%;
+ float:right;
+ text-align: center;
+}
+.about_right p {
+ line-height: 30px;
+ font-size: 17px;
+}
+.developer {
+ margin:20px auto;
+}
+.morequestions {
+ border: 1px solid #ccc;
+ border-radius: 20px;
+ padding: 20px 0;
+ text-transform: uppercase;
+}
+.qns {
+ padding-top: 35px;
+}
+/*student pages*/
+ .student_left {
+ width:48%;
+ float:left;
+}
+.student_right img {
+ border:3px solid #666;
+}
+.student_right {
+ width:48%;
+ float:right;
+ margin-top: 20px;
+}
+/*contact*/
+ #contact {
+ width: 350px;
+ text-align: left;
+ margin:0 auto;
+}
+.form {
+ border:1px solid #999;
+ border-radius:20px;
+ padding:40px;
+ margin:20px;
+}
+.submit {
+ width: 228px;
+ border: 0;
+ font-family: helvetica;
+ font-weight: 100;
+ text-transform: lowercase;
+ padding: 10px 0;
+ border-radius: 10px;
+ background-color: #51B6E6;
+}
+.form h6 {
+ font-family:"PFDinTextCompProBold", Impact, Arial;
+ font-size: 35px;
+ text-transform: uppercase;
+ line-height: 42px;
+ padding-bottom: 31px;
+ border-bottom: 1px solid #ccc;
+ margin: 40px 0;
+}
+/*FOOTER*/
+ footer {
+ margin: 50px auto;
+ width: 700px;
+ text-align: center;
+ border-top: 1px dashed #ccc;
+ border-bottom: 1px dashed #ccc;
+}
+/*OPPS*/
+ .opps a {
+ text-decoration: none;
+ color:#51B6E6;
+}
+/*THANKS*/
+ .thanks {
+ margin:10% auto;
+ text-align: center;
+}
