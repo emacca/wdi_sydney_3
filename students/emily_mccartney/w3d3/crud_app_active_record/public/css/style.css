@@ -1,0 +1,214 @@
+body{
+  font-family: helvetica;
+  font-weight: 100;
+}
+
+a{
+  color:#666;
+  text-decoration: none;
+  font-weight:100;
+}
+
+a:hover{
+  color:#dcd;
+}
+ul{
+  list-style: none;
+}
+
+ul li{
+  display:inline-block;
+  padding:10px;
+}
+p{
+  margin:0;
+  line-height: 24px;
+}
+
+button{
+width: 132px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 4px;
+padding: 10px;
+color: #cdc;
+}
+.delete{
+  float:right;
+}
+.formcontent{
+  margin:20px auto;
+  width:500px;
+}
+
+.formtext{
+  font-weight:400;
+  padding:20px 0;
+}
+
+input{
+  margin:20px 0;
+}
+
+h1{
+  font-weight:100;
+  font-size:40px;
+  text-align:center;
+  text-transform: lowercase;
+  padding:50px 0;
+}
+
+/*Fixes the clear problem*/
+ .clear:after {
+  content:".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.home{
+  width: 100%;
+height: 100%;
+top: 45%;
+margin: -42px 0 0 0;
+position: fixed;
+letter-spacing: 21px;
+
+}
+
+.fullhome{
+  background: url('/images/background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100%;
+  height:100%;
+  position:fixed;
+
+}
+.nav{
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+  text-align: center;
+  padding: 20px;
+margin-top: 50px;
+}
+.allposts{
+  width:900px;
+  margin:2% auto;
+}
+.allposts p{
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+padding-bottom: 52px;
+line-height: 21px;
+}
+h2{
+font-family: "futura-pt", helvetica, sans-serif;
+font-weight: 500;
+font-size: 36px;
+line-height: 40px;
+letter-spacing: .1em;
+padding: 40px 0 0 0;
+margin: 25px auto;
+color: #555;
+text-align: center;
+
+}
+
+h3{
+  font-family: "futura-pt", helvetica, sans-serif;
+font-weight: 100;
+font-size: 25px;
+line-height: 12px;
+letter-spacing: .1em;
+padding: 40px 0 0 0;
+margin: 25px auto;
+color: #555;
+text-align: left;
+}
+
+.mainpost, .comments{
+  width:900px;
+  margin:2% auto;
+}
+
+.authorcontent{
+  border-top: 1px dashed #ccc;
+padding: 10px 0;
+margin: 20px 0;
+}
+
+.authortext{
+
+  width: 90%;
+float: left;
+display: inline-block;
+}
+
+.deletepost{
+  width: 10%;
+float: right;
+display: inline-block;
+}
+
+.commentleft{
+  width:86%;
+  float:left;
+}
+
+.commentright{
+  width:10%;
+  float:left;
+}
+
+.onecomment{
+  width:100%;
+}
+/* Effect 1: Brackets */
+ .nav a {
+  position: relative;
+  display: inline-block;
+  margin: 15px 25px;
+  outline: none;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 100;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+}
+.nav a:hover, .nav a:focus {
+  outline: none;
+}
+.cl-effect-1 a::before, .cl-effect-1 a::after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+.cl-effect-1 a::before {
+  margin-right: 10px;
+  content:'[';
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  transform: translateX(20px);
+}
+.cl-effect-1 a::after {
+  margin-left: 10px;
+  content:']';
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+.cl-effect-1 a:hover::before, .cl-effect-1 a:hover::after, .cl-effect-1 a:focus::before, .cl-effect-1 a:focus::after {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+}

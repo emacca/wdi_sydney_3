@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Blog</title>
+</head>
+
+<body class="<%= @background %>">
+  <div class="nav cl-effect-1">
+    <a href="/">Home</a>
+    <a href="/posts/new">New Entry</a>
+    <a href="/posts">All</a>
+    <a href="/posts?sort=title">Sort By Title</a>
+    <a href="/posts?sort=created_at">Sort By date created</a>
+    <a href="/posts?sort=updated_at">Sort By date updated</a>
+  </div>
+
+
+  <%= yield %>
+  
+</body>
+</html>
+
