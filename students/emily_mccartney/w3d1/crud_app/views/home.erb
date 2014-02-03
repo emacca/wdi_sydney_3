@@ -1,0 +1,6 @@
+<% @rows.each do |row| %>
+  <p><strong><%= row["id"]%></strong> 
+  <a href="/posts/<%= row["id"] %>"><%= row['title'] %></a> 
+  <br/><em><%= row ['description'] %></em></p>
+
+<% end %> 

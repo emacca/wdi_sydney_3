@@ -1,0 +1,41 @@
+<section class="mainpost">
+  <p>Name of blog: <%= @post["title"]%></p>
+  <p>Description: <%= @post["description"]%></p>
+  <p>Content: <%= @post["content"] %></p>
+  <p>Author: <%= @post["author"] %></p>
+  <p>Time Created: <%= @post["created_at"] %></p>
+  <p>Last Updated:<%=@post["updated_at"] %></p>
+
+  <p><a href="/posts/<%= @post['id'] %>/edit">Edit</a></p>
+  <form action="/posts/<%= @post['id'] %>" method="post">
+    <input type="hidden" name="_method" value="delete"/> 
+  <button>DELETE</button>
+  </form>
+ </section>
+
+ <section class="comments"> 
+  <p>Comments</p>
+
+  <% @comments.each do |comment| %>
+  <p>Author:<%= comment["author"]%>
+  <p>Created At:<%= comment["created_at"]%></p>
+  <p>Content:<%= comment["comment"]%></p>
+  <form action="/posts/<%= @post['id'] %>/comments/<%= comment['id'] %>" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+  <button>DELETE</button>
+  </form>
+  <% end %> 
+
+
+  <form class="formnew" action="/posts/<%= @post['id']%>" method="post">
+  
+  <label class="formtext" for="author">Author:</label><br/>
+  <input type="text" name="author"></br>
+ 
+  <label class="formtext" for="comment">Comment:</label></br>
+  <textarea type="text" name="comment" rows="3" cols="40"></textarea><br/>
+
+  <button>Submit Comment</button><br/>
+
+</form>
+</section>
