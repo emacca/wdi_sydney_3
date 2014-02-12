@@ -26,6 +26,7 @@ rails generate scaffold Robot name:string description:text image:string
 rails generate scaffold Sense name:string description:text image:string
 rails generate scaffold Idea name:string description:text
 rails generate scaffold Hunch name:string description:text
+rails generate scaffold User name:string type_of:string image:string
 rails g migration CreateJoinTableIdeaHunch idea hunch
 
 rake db:migrate
@@ -387,7 +388,7 @@ http://blog.relatabase.com/rails-postgres-arrays
 #####
 
 http://stackoverflow.com/questions/7805711/javascript-json-google-trends-api
-
+https://github.com/suryasev/unofficial-google-trends-api
 
 ####
 # RAILS CONSOLE TO TEST CODE AND CALL FUNCTIONS ETC

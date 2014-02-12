@@ -5,18 +5,19 @@ AiApp::Application.routes.draw do
 get "about" => "pages#about"
 get "contribute" => "pages#contribute"
 
-  resources :robots do
-  		resources :senses, shallow:true 
-  		resources :ideas, shallow:true do
-  			resources :hunches, shallow:true
-		end
-  end
+   resources :robots do
+   		resources :senses, shallow:true 
+   		resources :ideas do
+   			resources :hunches, shallow:true
+	    end
+   end
   
   root :to => 'hunches#index' 
 
   resources :senses
   resources :ideas
   resources :hunches
+  #resources :categories
 
 end
 
