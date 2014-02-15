@@ -162,6 +162,9 @@ window.onload = function(){
 	  	// reveals the answer to the secret word and ends the game
 	  	giveUp: function(){
 			console.log('giveup triggered');
+			game.updateDisplay(word.secretWordArray, 0, player.MAX_GUESSES); 
+			alert("It's tough isn't it. We've revealed the solution for you. Press any key to try again ...");
+			game.resetGame();
 	  	},
 
 	  	// update the display with the parts of the secret word guessed, the letters guessed, and the guesses remaining
