@@ -5,28 +5,28 @@ window.onload = function(){
   displayBalance(checking);
   displayBalance(savings);
 
-  document.getElementById("checkingDeposit").onclick = function(event){
+  $("#checkingDeposit").on("click", function(event){
    deposit(checking);
-  };
+  });
 
-  document.getElementById("savingsDeposit").onclick = function(event){
+  $("#savingsDeposit").on("click", function(event){
     deposit(savings);
-  };
+  });
 
-  document.getElementById("checkingWithdraw").onclick = function(event){
+  $("#checkingWithdraw").on("click", function(event){
     withdraw(checking,savings);
-  };
+  });
 
-  document.getElementById("savingsWithdraw").onclick = function(event){
+  $("#savingsWithdraw").on("click", function(event){
     withdraw(savings,checking);
-  };
+  });
 
 // takes in account array and validates that it is an integer.
 // adds the amount entered to account total.
 // calls display function to update balance on screen.
 // For both savings and checking
   function deposit(account){
-    var amount = document.getElementById(account[1]).value;
+    var amount = $("#"+ account[1]).val();
     if (validateAmount(amount)) {
       account[0] = account[0] + parseFloat(amount);
       displayBalance(account);
@@ -34,7 +34,7 @@ window.onload = function(){
     else {
       alert("Enter a valid number");
     }
-    document.getElementById(account[1]).value = "";
+    $("#" + account[1]).val("");  
   };
 
 // takes in both account arrays.
@@ -43,7 +43,7 @@ window.onload = function(){
 // if so, minus amount from account1 and any remaining from account2.
 
   function withdraw(account1, account2){
-    var amount = document.getElementById(account1[1]).value;
+    var amount = $("#" + account1[1]).val();
     if (validateAmount(amount)){
         if (parseFloat(amount) <= (account1[0] + account2[0])){
           if (parseFloat(amount) <= account1[0]){
@@ -64,7 +64,7 @@ window.onload = function(){
     else {
       alert("Enter a valid number");
     }
-    document.getElementById(account1[1]).value = "";
+    $("#" + account1[1]).val("");
   };
   
   function validateAmount(amount){
@@ -73,16 +73,16 @@ window.onload = function(){
   };
 
   function displayBalance(account){
-    document.getElementById(account[2]).innerHTML = "$".concat(account[0].toFixed(2));
+    $("#" + account[2]).text('$'.concat(account[0].toFixed(2)));
     checkColour(account);
   };
 
   function checkColour(array){
     if ( array[0] === 0){
-      document.getElementById(array[2]).style.background = "red";  
+      $("#" + array[2]).css("background", "red");
     }
     else{
-      document.getElementById(array[2]).style.background = "#E3E3E3"; 
+      $("#" + array[2]).css("background","#E3E3E3"); 
     }
   };
 
